@@ -1,6 +1,7 @@
 import axios from "axios";
+import Movie from "../models/Movie";
 
-export function fetchPopular() {
+export function fetchPopular(): Promise<Movie[]> {
   const apiKey = process.env.REACT_APP_TMDB_API_KEY || "";
 
   return axios
