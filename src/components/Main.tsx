@@ -1,11 +1,12 @@
 // import "./Main.css";
 import { useEffect, useState } from "react";
-import Movie from "../models/Movie";
+import MovieInterface from "../models/MovieInterface";
 import { fetchPopular } from "../services/MovieDbApiService";
+import Results from "./Results";
 
 function Main() {
   // STATES FOR MOVIES & SEARCH TERMS
-  const [movies, setMovies] = useState<Movie[]>([]);
+  const [movies, setMovies] = useState<MovieInterface[]>([]);
   const [search, setSearch] = useState<string>("");
 
   // API HOOK
@@ -17,15 +18,7 @@ function Main() {
   return (
     <div className="Main">
       <h1>Main</h1>
-      {movies.map((movie, i) => (
-        <li key={i}>
-          {movie.title} {movie.vote_average}
-          <img
-            src={"https://image.tmdb.org/t/p/w300/" + movie.poster_path}
-            alt=""
-          />
-        </li>
-      ))}
+      <Results movies={movies} />
     </div>
   );
 }

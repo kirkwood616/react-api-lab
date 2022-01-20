@@ -1,4 +1,4 @@
-interface Movie {
+interface MovieInterface {
   title: string;
   poster_path: string;
   vote_average: number;
@@ -6,4 +6,4 @@ interface Movie {
   release_date: string;
 }
 
-export default Movie;
+export default MovieInterface;
