@@ -20,6 +20,10 @@ function Main() {
       {movies.map((movie, i) => (
         <li key={i}>
           {movie.title} {movie.vote_average}
+          <img
+            src={"https://image.tmdb.org/t/p/w300/" + movie.poster_path}
+            alt=""
+          />
         </li>
       ))}
     </div>
