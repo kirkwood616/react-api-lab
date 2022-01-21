@@ -1,0 +1,24 @@
+.Header{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    position: sticky;
+    top: 0;
+    background-color: #22303c;
+    align-items: center;
+    padding: 0px 30px;
+    
+}
+
+.Header ul li{
+    display: inline;
+    list-style-type: none;
+}
+
+.Header li{
+    padding-left: 15px;
+}
+
+.Header .pipe{
+    padding-left: 15px;
+}

@@ -8,6 +8,7 @@ function Header() {
         <li>
           <a href="/">Home</a>
         </li>
+        <span className="pipe">|</span>
         <li>
           <a href="/">Watchlist</a>
         </li>
