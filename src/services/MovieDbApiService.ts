@@ -25,3 +25,15 @@ export function fetchGenre(): Promise<Genre[]> {
     })
     .then((res) => res.data.genres);
 }
+
+// https://api.themoviedb.org/3/discover/movie?{apiKey}
+
+export function fetchSearch(searchParams: string): Promise<Movie[]> {
+  return axios
+    .get(
+      "https://api.themoviedb.org/3/discover/movie?{apiKey}" +
+        { apiKey } +
+        { searchParams }
+    )
+    .then((res) => res.data.results);
+}

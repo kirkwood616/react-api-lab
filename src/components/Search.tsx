@@ -3,7 +3,9 @@ import { FormEvent, useEffect, useState } from "react";
 import Genre from "../models/GenreInterface";
 import { fetchGenre } from "../services/MovieDbApiService";
 
-interface Props {}
+interface Props {
+  onSubmit: (search: string) => void;
+}
 
 function Search({}: Props) {
   // STATES FOR FORM OPTIONS
