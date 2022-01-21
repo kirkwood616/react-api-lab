@@ -24,7 +24,6 @@ function Main() {
   // RENDER PAGE
   return (
     <div className="Main">
-      <h1>Main</h1>
       <Search onSubmit={setSearch} />
       <Results movies={movies} />
     </div>

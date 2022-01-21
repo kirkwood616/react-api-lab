@@ -9,7 +9,6 @@ interface Props {
 function Results({ movies }: Props) {
   return (
     <div className="Results">
-      <h1>Results</h1>
       {movies.map((movie, i) => (
         <Movie key={i} movie={movie} />
       ))}
