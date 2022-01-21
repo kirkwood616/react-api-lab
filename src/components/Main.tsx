@@ -1,7 +1,7 @@
 // import "./Main.css";
 import { useEffect, useState } from "react";
 import MovieInterface from "../models/MovieInterface";
-import { fetchPopular } from "../services/MovieDbApiService";
+import { fetchPopular, fetchSearch } from "../services/MovieDbApiService";
 import Results from "./Results";
 import Search from "./Search";
 
@@ -12,8 +12,14 @@ function Main() {
 
   // API HOOK FOR POPULAR RESULTS
   useEffect(() => {
-    fetchPopular().then((data) => setMovies(data));
-  }, []);
+    if (search) {
+      fetchSearch(search).then((data) => setMovies(data));
+      console.log(search + " HEY");
+    } else {
+      fetchPopular().then((data) => setMovies(data));
+      console.log(`${search} + SEARCH`);
+    }
+  }, [search]);
 
   // RENDER PAGE
   return (

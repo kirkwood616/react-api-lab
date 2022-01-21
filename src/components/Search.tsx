@@ -7,7 +7,7 @@ interface Props {
   onSubmit: (search: string) => void;
 }
 
-function Search({}: Props) {
+function Search({ onSubmit }: Props) {
   // STATES FOR FORM OPTIONS
   const [genreList, setGenreList] = useState<Genre[]>([]);
   const [genre, setGenre] = useState<number>();
@@ -18,7 +18,9 @@ function Search({}: Props) {
 
   if (genre) searchParams += `&with_genres=${genre}`;
   if (runTime) searchParams += `&with_runtime.lte=${runTime}`;
-  if (minScore) searchParams += `&with_vote_average.gte=${minScore}`;
+  if (minScore) searchParams += `&vote_average.gte=${minScore}`;
+
+  console.log(runTime);
 
   // API HOOK FOR GENRES LIST & VALUE
   useEffect(() => {
@@ -28,10 +30,14 @@ function Search({}: Props) {
   // FUNCTIONS
   function handleSubmit(e: FormEvent) {
     e.preventDefault();
-    console.log(searchParams);
-    console.log(genre);
-    console.log(runTime);
-    console.log(minScore);
+    onSubmit(searchParams);
+    // setGenre(undefined);
+    // setRunTime(undefined);
+    // setMinScore(undefined);
+    // console.log(searchParams);
+    // console.log(genre);
+    // console.log(runTime);
+    // console.log(minScore);
   }
 
   return (
@@ -56,7 +62,7 @@ function Search({}: Props) {
         {/* RUN-TIME */}
         <label htmlFor="runTime">Runtime Length: </label>
         <input
-          min={1}
+          min={0}
           max={1000}
           type="number"
           name="runTime"
