@@ -6,12 +6,19 @@ import { fetchGenre } from "../services/MovieDbApiService";
 interface Props {}
 
 function Search({}: Props) {
+  // STATES FOR FORM OPTIONS
   const [genreList, setGenreList] = useState<Genre[]>([]);
   const [genre, setGenre] = useState<number>();
   const [runTime, setRunTime] = useState<number>();
   const [minScore, setMinScore] = useState<number>();
 
-  // API HOOK FOR GENRES
+  let searchParams: string = "";
+
+  if (genre) searchParams += `&with_genres=${genre}`;
+  if (runTime) searchParams += `&with_runtime.lte=${runTime}`;
+  if (minScore) searchParams += `&with_vote_average.gte=${minScore}`;
+
+  // API HOOK FOR GENRES LIST & VALUE
   useEffect(() => {
     fetchGenre().then((data) => setGenreList(data));
   }, []);
@@ -19,7 +26,10 @@ function Search({}: Props) {
   // FUNCTIONS
   function handleSubmit(e: FormEvent) {
     e.preventDefault();
+    console.log(searchParams);
+    console.log(genre);
     console.log(runTime);
+    console.log(minScore);
   }
 
   return (
@@ -44,7 +54,7 @@ function Search({}: Props) {
         {/* RUN-TIME */}
         <label htmlFor="runTime">Runtime Length: </label>
         <input
-          min={0}
+          min={1}
           max={1000}
           type="number"
           name="runTime"
