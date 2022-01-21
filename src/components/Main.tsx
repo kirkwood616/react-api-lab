@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import MovieInterface from "../models/MovieInterface";
 import { fetchPopular } from "../services/MovieDbApiService";
 import Results from "./Results";
+import Search from "./Search";
 
 function Main() {
   // STATES FOR MOVIES & SEARCH TERMS
@@ -18,6 +19,7 @@ function Main() {
   return (
     <div className="Main">
       <h1>Main</h1>
+      <Search />
       <Results movies={movies} />
     </div>
   );
