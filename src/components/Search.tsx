@@ -30,6 +30,7 @@ function Search({ onSubmit }: Props) {
   // FUNCTIONS
   function handleSubmit(e: FormEvent) {
     e.preventDefault();
+    // setGenre(undefined);
     onSubmit(searchParams);
     // setGenre(undefined);
     // setRunTime(undefined);

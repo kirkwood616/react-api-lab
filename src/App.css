@@ -1,75 +1,86 @@
-.Header{
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
-    position: sticky;
-    top: 0;
-    background-color: #22303c;
-    align-items: center;
-    padding: 0px 30px;
-    
+.Header {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  position: sticky;
+  top: 0;
+  background-color: #22303c;
+  align-items: center;
+  padding: 0px 30px;
 }
 
-.Header ul li{
-    display: inline;
-    list-style-type: none;
+.Header ul li {
+  display: inline;
+  list-style-type: none;
 }
 
-.Header li{
-    padding-left: 15px;
+.Header li {
+  padding-left: 15px;
 }
 
-.Header .pipe{
-    padding-left: 15px;
+.Header .pipe {
+  padding-left: 15px;
 }
 
-.Results{
-    margin: 15px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+.Search {
+  margin: 0 auto;
 }
 
-.Movie{
-    margin: 15px 15px;
-    background-color: #192734;
-    box-shadow: 0 0 20px black;
-    text-align: center;
-    max-width: 300px;
+.Results {
+  margin: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-.Movie .Title{
-    font-weight: bold;
-    font-size: 1.25rem;
-    word-wrap: break-word;
+.Movie {
+  margin: 15px 15px;
+  background-color: #192734;
+  box-shadow: 0 0 20px black;
+  text-align: center;
+  max-width: 300px;
 }
 
-.Movie .Rating{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 25px;
-    height: 25px;
-    margin: 0 auto;
-    padding: 15px;
-    border-radius: 50%;
-    text-align: center;
-    font-weight: bold;
-    border-style: double;
-    border: #15202b 2px solid;
+.Movie img {
+  height: 420px;
+  width: 300px;
 }
 
-.Movie .RatingInner{
-    background-color: #15202b;
-    border-radius: 50%;
-    padding: 10px;
-    width: 25px;
-    height: 25px;
-    margin: 0 auto;
-    text-align: center;
+.Movie .Title {
+  font-weight: bold;
+  font-size: 1rem;
+  word-wrap: break-word;
 }
 
-.Movie .Percent{
-    font-size: .75rem;
+.Movie .Rating {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25px;
+  height: 25px;
+  margin: 0 auto;
+  padding: 15px;
+  border-radius: 50%;
+  /* text-align: center; */
+  font-weight: bold;
+  /* border-style: double; */
+  border: #15202b 2px solid;
 }
 
+.Movie .RatingInner {
+  background-color: #15202b;
+  border-radius: 50%;
+  padding: 10px;
+  min-width: 25px;
+  height: 25px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Movie .Percent {
+  font-size: 0.65rem;
+  font-weight: normal;
+}
