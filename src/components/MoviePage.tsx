@@ -1,6 +1,6 @@
 // import "./MoviePage.css";
 import { useEffect, useState } from "react";
-import { useParams, useSearchParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import MovieInterface from "../models/MovieInterface";
 import { fetchCertification, fetchMovie } from "../services/MovieDbApiService";
 
@@ -21,12 +21,13 @@ function MoviePage() {
 
   useEffect(() => {
     fetchCertification(id).then((data) => {
-      let something = certification.find((e) => e.iso_3166_1 === "US");
-      console.log(something);
-
-      setCertification(something);
+      setCertification(data);
     });
   }, [id]);
+
+  let certUS = certification.find((e) => e.iso_3166_1 === "US");
+
+  console.log(certUS);
 
   // PAGE RENDER
   return (
