@@ -1,6 +1,7 @@
 import axios from "axios";
 import Movie from "../models/MovieInterface";
 import Genre from "../models/GenreInterface";
+import MovieInterface from "../models/MovieInterface";
 
 const apiKey = process.env.REACT_APP_TMDB_API_KEY || "";
 
@@ -34,4 +35,12 @@ export function fetchSearch(search: string): Promise<Movie[]> {
       `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US${search}`
     )
     .then((res) => res.data.results);
+}
+
+export function fetchMovie(id: number): Promise<MovieInterface> {
+  return axios
+    .get(
+      `https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}&language=en-US`
+    )
+    .then((res) => res.data);
 }
