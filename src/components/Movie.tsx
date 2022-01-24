@@ -1,4 +1,5 @@
 // import "./Movie.css";
+import { Link } from "react-router-dom";
 import MovieInterface from "../models/MovieInterface";
 
 interface Props {
@@ -19,10 +20,12 @@ function Movie({ movie, onAdd }: Props) {
   // RENDER PAGE
   return (
     <div className="Movie">
-      <img
-        src={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`}
-        alt={`${movie.title} Movie Poster`}
-      />
+      <Link to={`/movies/${movie.id}`}>
+        <img
+          src={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`}
+          alt={`${movie.title} Movie Poster`}
+        />
+      </Link>
       <p className="Title">{movie.title}</p>
       <div className="Rating" style={{ backgroundColor: bgColor }}>
         <div className="RatingInner">

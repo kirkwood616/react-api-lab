@@ -9,6 +9,7 @@ interface Props {
 }
 
 function Results({ movies }: Props) {
+  // WORKAROUND FOR NOT KNOWING CONTEXT YET - DUPLICATE WATCHLIST STATE
   let [watchList, setWatchList] = useState<MovieInterface[]>(WatchListGroup);
 
   function handleWatchList(movie: MovieInterface) {

@@ -10,6 +10,7 @@ export function WatchList({}: Props) {
   let [watchList, setWatchList] = useState<MovieInterface[]>(WatchListGroup);
 
   function handleWatchList(movie: MovieInterface) {
+    // WORKAROUND FOR NOT KNOWING CONTEXT YET - DUPLICATE WATCHLIST STATE
     let index: number = watchList.findIndex((e) => e.id === movie.id);
 
     if (watchList.length && index + 1) {
