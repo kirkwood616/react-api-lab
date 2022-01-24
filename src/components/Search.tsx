@@ -11,16 +11,17 @@ function Search({ onSubmit }: Props) {
   // STATES FOR FORM OPTIONS
   const [genreList, setGenreList] = useState<Genre[]>([]);
   const [genre, setGenre] = useState<number>();
-  const [runTime, setRunTime] = useState<number>();
+  // const [runTime, setRunTime] = useState<number>();
+  const [rating, setRating] = useState<string>("");
   const [minScore, setMinScore] = useState<number>();
 
   let searchParams: string = "";
 
   if (genre) searchParams += `&with_genres=${genre}`;
-  if (runTime) searchParams += `&with_runtime.lte=${runTime}`;
+  // if (runTime) searchParams += `&with_runtime.lte=${runTime}`;
+  if (rating)
+    searchParams += `&certification_country=US&&certification=${rating}`;
   if (minScore) searchParams += `&vote_average.gte=${minScore}`;
-
-  console.log(runTime);
 
   // API HOOK FOR GENRES LIST & VALUE
   useEffect(() => {
@@ -30,15 +31,7 @@ function Search({ onSubmit }: Props) {
   // FUNCTIONS
   function handleSubmit(e: FormEvent) {
     e.preventDefault();
-    // setGenre(undefined);
     onSubmit(searchParams);
-    // setGenre(undefined);
-    // setRunTime(undefined);
-    // setMinScore(undefined);
-    // console.log(searchParams);
-    // console.log(genre);
-    // console.log(runTime);
-    // console.log(minScore);
   }
 
   return (
@@ -60,26 +53,32 @@ function Search({ onSubmit }: Props) {
             </option>
           ))}
         </select>
-        {/* RUN-TIME */}
-        <label htmlFor="runTime">Runtime Length: </label>
-        <input
-          min={0}
-          max={1000}
-          type="number"
-          name="runTime"
-          id="runTime"
-          onChange={(e) => setRunTime(Number(e.target.value))}
-        />
+        {/* RATING */}
+        <label htmlFor="rating">MPAA Rating: </label>
+        <select
+          name="rating"
+          id="rating"
+          value={rating}
+          onChange={(e) => setRating(e.target.value)}
+        >
+          <option value="">Any</option>
+          <option value="NR">NR - Not Rated</option>
+          <option value="G">G</option>
+          <option value="PG">PG</option>
+          <option value="PG-13">PG-13</option>
+          <option value="R">R</option>
+          <option value="NC-17">NC-17</option>
+        </select>
         {/* SCORE */}
-        <label htmlFor="score">Minimum Score: </label>
+        <label htmlFor="score">Minimum Score (%): </label>
         <input
           type="number"
           min={0}
-          max={10}
-          step={0.5}
+          max={100}
+          step={1}
           name="score"
           id="score"
-          onChange={(e) => setMinScore(Number(e.target.value))}
+          onChange={(e) => setMinScore(Number(e.target.value) / 10)}
         />
         <button type="submit">SEARCH</button>
       </form>

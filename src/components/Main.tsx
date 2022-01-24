@@ -14,10 +14,10 @@ function Main() {
   useEffect(() => {
     if (search) {
       fetchSearch(search).then((data) => setMovies(data));
-      console.log(search + " HEY");
+      // console.log(search + " HEY");
     } else {
       fetchPopular().then((data) => setMovies(data));
-      console.log(`${search} + SEARCH`);
+      // console.log(`${search} + SEARCH`);
     }
   }, [search]);
 
