@@ -32,12 +32,10 @@ function App() {
       <Router>
         <Header />
         <Routes>
-          {/* <Route path="/" element={<Main />} /> */}
+          <Route path="/" element={<Main />} />
           <Route path="/watchlist" element={<WatchList />} />
         </Routes>
       </Router>
-
-      <Main />
     </div>
   );
 }
