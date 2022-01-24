@@ -1,25 +1,44 @@
 // import "./MoviePage.css";
 import { useEffect, useState } from "react";
+import { useParams, useSearchParams } from "react-router-dom";
 import MovieInterface from "../models/MovieInterface";
-import { fetchMovie } from "../services/MovieDbApiService";
+import { fetchCertification, fetchMovie } from "../services/MovieDbApiService";
 
-interface Props {
-  movie: MovieInterface;
-}
+function MoviePage() {
+  const [movie, setMovie] = useState<MovieInterface>();
+  const [certification, setCertification] = useState<any[]>([]);
+  const id: number = Number(useParams().id!);
 
-function MoviePage({ movie }: Props) {
-  const [movieResult, setMovieResult] = useState<MovieInterface>();
+  console.log(certification);
+
+  // console.log(id);
+  // console.log(certification);
 
   // API HOOK
   useEffect(() => {
-    fetchMovie(movie.id).then((data) => setMovieResult(data));
-  });
+    fetchMovie(id).then((data) => setMovie(data));
+  }, [id]);
+
+  useEffect(() => {
+    fetchCertification(id).then((data) => {
+      let something = certification.find((e) => e.iso_3166_1 === "US");
+      console.log(something);
+
+      setCertification(something);
+    });
+  }, [id]);
 
   // PAGE RENDER
   return (
     <div className="MoviePage">
       <h1>Movie Page</h1>
-      {movie.id}
+      <img
+        src={`https://image.tmdb.org/t/p/w300/${movie?.poster_path}`}
+        alt={`${movie?.title} Movie Poster`}
+      />
+      <p>{movie?.vote_average}</p>
+      <p>{movie?.title}</p>
+      <p>{movie?.overview}</p>
     </div>
   );
 }
