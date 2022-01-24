@@ -11,14 +11,12 @@ function Search({ onSubmit }: Props) {
   // STATES FOR FORM OPTIONS
   const [genreList, setGenreList] = useState<Genre[]>([]);
   const [genre, setGenre] = useState<number>();
-  // const [runTime, setRunTime] = useState<number>();
   const [rating, setRating] = useState<string>("");
   const [minScore, setMinScore] = useState<number>();
 
   let searchParams: string = "";
 
   if (genre) searchParams += `&with_genres=${genre}`;
-  // if (runTime) searchParams += `&with_runtime.lte=${runTime}`;
   if (rating)
     searchParams += `&certification_country=US&&certification=${rating}`;
   if (minScore) searchParams += `&vote_average.gte=${minScore}`;

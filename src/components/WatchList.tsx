@@ -1,17 +1,16 @@
 import { useState } from "react";
+import Movie from "./Movie";
 // import "./WatchList.css";
 
 interface Props {}
 
 export function WatchList({}: Props) {
-  const [watchList, setWatchList] = useState([]);
-
-  function addToWatchList() {
-    //
-  }
   return (
     <div className="WatchList">
-      <h1>WatchList</h1>
+      <h1>Your Watch List</h1>
+      <div className="watchListContainer">
+        <p>!!Ternary Display Here!!</p>
+      </div>
     </div>
   );
 }
