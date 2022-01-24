@@ -10,14 +10,14 @@ function Main() {
   const [movies, setMovies] = useState<MovieInterface[]>([]);
   const [search, setSearch] = useState<string>("");
 
+  // console.log(movies);
+
   // API HOOK FOR POPULAR RESULTS
   useEffect(() => {
     if (search) {
       fetchSearch(search).then((data) => setMovies(data));
-      // console.log(search + " HEY");
     } else {
       fetchPopular().then((data) => setMovies(data));
-      // console.log(`${search} + SEARCH`);
     }
   }, [search]);
 

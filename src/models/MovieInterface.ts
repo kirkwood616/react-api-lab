@@ -4,6 +4,7 @@ interface MovieInterface {
   vote_average: number;
   overview: string;
   release_date: string;
+  id: number;
 }
 
 export default MovieInterface;

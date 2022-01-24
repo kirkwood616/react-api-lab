@@ -3,9 +3,11 @@ import MovieInterface from "../models/MovieInterface";
 
 interface Props {
   movie: MovieInterface;
+  onAdd: () => void;
 }
 // SINGULAR MOVIE - NOT THE ARRAY OF MOVIES
-function Movie({ movie }: Props) {
+function Movie({ movie, onAdd }: Props) {
+  // RATING DISPLAY LOGIC
   let bgColor = "";
   if (movie.vote_average <= 4) {
     bgColor = "red";
@@ -14,11 +16,12 @@ function Movie({ movie }: Props) {
   } else {
     bgColor = "green";
   }
+  // RENDER PAGE
   return (
     <div className="Movie">
       <img
-        src={"https://image.tmdb.org/t/p/w300/" + movie.poster_path}
-        alt="Movie Poster"
+        src={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`}
+        alt={`${movie.title} Movie Poster`}
       />
       <p className="Title">{movie.title}</p>
       <div className="Rating" style={{ backgroundColor: bgColor }}>
@@ -27,6 +30,9 @@ function Movie({ movie }: Props) {
           <span className="Percent">%</span>
         </div>
       </div>
+      <button id="addWatchList" onClick={onAdd}>
+        + WATCHLIST
+      </button>
     </div>
   );
 }

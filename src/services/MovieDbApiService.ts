@@ -35,10 +35,3 @@ export function fetchSearch(search: string): Promise<Movie[]> {
     )
     .then((res) => res.data.results);
 }
-
-// export async function fetchSearch(search: string): Promise<Movie[]> {
-//   const res = await axios.get(
-//     `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US${search}`
-//   );
-//   return res.data.results;
-// }
