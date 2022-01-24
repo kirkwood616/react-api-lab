@@ -37,10 +37,20 @@ export function fetchSearch(search: string): Promise<Movie[]> {
     .then((res) => res.data.results);
 }
 
+// SINGLE MOVIE API
 export function fetchMovie(id: number): Promise<MovieInterface> {
   return axios
     .get(
       `https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}&language=en-US`
     )
     .then((res) => res.data);
+}
+
+// SINGLE MOVIE CERTIFICATION(RATED) API
+export function fetchCertification(id: number) {
+  return axios
+    .get(
+      `https://api.themoviedb.org/3/movie/${id}/release_dates?api_key=${apiKey}`
+    )
+    .then((res) => res.data.results);
 }

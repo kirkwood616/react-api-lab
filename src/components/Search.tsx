@@ -18,7 +18,7 @@ function Search({ onSubmit }: Props) {
 
   if (genre) searchParams += `&with_genres=${genre}`;
   if (rating)
-    searchParams += `&certification_country=US&&certification=${rating}`;
+    searchParams += `&certification_country=US&certification=${rating}`;
   if (minScore) searchParams += `&vote_average.gte=${minScore}`;
 
   // API HOOK FOR GENRES LIST & VALUE
