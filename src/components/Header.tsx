@@ -1,5 +1,7 @@
 // import "./Header.css";
 
+import { Link } from "react-router-dom";
+
 function Header() {
   return (
     <div className="Header">
@@ -10,7 +12,8 @@ function Header() {
         </li>
         <span className="pipe">|</span>
         <li>
-          <a href="/">Watchlist</a>
+          {/* <a href="/">Watchlist</a> */}
+          <Link to="/watchlist">Watchlist</Link>
         </li>
       </ul>
     </div>
