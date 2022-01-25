@@ -28,7 +28,7 @@ export function WatchList({}: Props) {
     <div className="WatchList">
       <h1>Your Watch List</h1>
       <div className="watchListContainer">
-        <p>!!Ternary Display Here!!</p>
+        {/* <p>!!Ternary Display Here!!</p> */}
         {watchList.map((movie, i) => (
           <Movie key={i} movie={movie} onAdd={() => handleWatchList(movie)} />
         ))}
