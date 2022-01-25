@@ -7,8 +7,9 @@
   top: 0;
   background-color: #22303c;
   align-items: center;
-  padding: 20px 30px;
+  padding: 0px 30px 15px;
   z-index: 1;
+  box-shadow: 0 0 20px black;
 }
 
 h1{
@@ -28,7 +29,7 @@ h2{
     background-color: #22303c;
     box-shadow: 0 0 20px black;
     margin: 40px;
-    padding: 20px;
+    padding: 20px 20px 30px 20px;
     font-weight: bold;
     font-size: 20px;
     border-radius: 2px;
@@ -198,8 +199,7 @@ input#score{
 
 div.attribution{
   display:flex;
-  width: 100px;
-  height: 100px;
+  justify-content: center;
 }
 
 @media only screen and (max-width: 800px) { 
@@ -251,7 +251,7 @@ div.attribution{
       background-color: #22303c;
       box-shadow: 0 0 20px black;
       margin: 30px;
-      padding: 10px 100px;
+      padding: 5px 100px;
       height: 225px;
   }
 
