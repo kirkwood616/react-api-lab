@@ -25,7 +25,7 @@ function Results({ movies }: Props) {
     }
     handleWatchListGroup(movie);
   }
-  console.log(watchList);
+  // console.log(watchList);
 
   return (
     <div className="Results">
