@@ -28,8 +28,7 @@ function MoviePage() {
 
   // FORMAT RELEASE DATE
   function releaseDateConvert(date: string): String {
-    let newDate: string = releaseDate.slice(0, 9);
-    const [year, month, day] = newDate.split("-");
+    const [year, month, day] = date.split("-");
     const dateObj = { month, day, year };
     const dateFormat = `${dateObj.month}/${dateObj.day}/${dateObj.year}`;
     return dateFormat;
@@ -70,7 +69,7 @@ function MoviePage() {
     bgColor = "green";
   }
 
-  console.log(movie?.genres);
+  // console.log(releaseDate);
 
   // PAGE RENDER
   return (
@@ -83,15 +82,14 @@ function MoviePage() {
           />
         </div>
         <div className="movieInfo">
+          <h3>
+            {" "}
+            {movie?.title} ({movie?.release_date.slice(0, 4)})
+          </h3>
+
           <p>
-            <h3>
-              {" "}
-              {movie?.title} ({releaseDate.slice(0, 4)})
-            </h3>
-          </p>
-          <p>
-            <span className="rating">{rating}</span>
-            {releaseDateConvert(String(releaseDate))} •{" "}
+            <span className="rated">{rating}</span>
+            {releaseDateConvert(String(movie?.release_date))} •{" "}
             {movie?.genres.map((genre, index) =>
               index ? " / " + genre.name : "" + genre.name
             )}{" "}
