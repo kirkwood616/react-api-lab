@@ -22,7 +22,7 @@ function App() {
           <Route path="/watchlist" element={<WatchList />} />
           <Route path="/movie/:id" element={<MoviePage />} />
         </Routes>
-      </Router>
+      </Router>     
     </div>
   );
 }

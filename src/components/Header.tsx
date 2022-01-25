@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 function Header() {
   return (
     <div className="Header">
-      <h2>Movie APP</h2>
+      <h2>Movie HUB</h2>
       <ul>
         <li>
           <Link to="/">Home</Link>

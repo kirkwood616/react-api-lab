@@ -38,6 +38,7 @@ form{
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  align-items: center;
 }
 
 select#genre{
@@ -95,17 +96,14 @@ input#score{
 
 .Search button{
   background-color: #8899a6;
-  /* float: right; */
   border: none;
   color: white;
   padding: 10px 25px;
   text-align: center;
   text-decoration: none;
-  /* display: inline-block; */
   font-size: 16px;
   transition: 0.2s;
   font-weight: bold;
-  margin: 15px 0 0 35px;
   border-radius: 2px;
   box-shadow: 0 0 20px black;
 
@@ -198,10 +196,20 @@ input#score{
   justify-content: center;
 }
 
+div.attribution{
+  text-align: center;
+}
+
+img{
+  width: 10%;
+  height: 10%;
+}
+
 @media only screen and (max-width: 800px) { 
 
   h1{
-    margin: 0px;  }
+    margin: 0px;  
+  }
 
   .Search{
       background-color: #22303c;
@@ -215,6 +223,8 @@ input#score{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: stretch;
+
   }
 
   select#genre{
@@ -244,30 +254,47 @@ input#score{
       background-color: #22303c;
       box-shadow: 0 0 20px black;
       margin: 30px;
-      padding: 40px 200px;
-      height:250px;
+      padding: 10px 100px;
+      height: 225px;
   }
 
   form{
     display: flex;
     flex-direction:column;
-    justify-content: space-around;
+    justify-content: space-between;
     margin: 0px auto;
+    align-items: stretch;
   }
 
-  select#genre{
-    min-width: 300px;
-    max-width:400px;
+  div.genre{
+    /* min-width: 300px;
+    max-width:400px; */
+    display: flex;
+    justify-content: space-between;
+    min-width: 350px;
+
   }
 
-  select#rating{
-    min-width: 300px;
-    max-width:400px;
+  select{
+    width: 110px;
+  }
+
+  div.rating{
+    /* min-width: 300px;
+    max-width:400px; */
+    display: flex;
+    justify-content: space-between;
+  }
+
+  div.score{
+    /* min-width: 298px; */
+    /* max-width:400px; */
+    display: flex;
+    justify-content: space-between;
   }
 
   input#score{
-    min-width: 300px;
-    max-width:400px;
+    width:108px;
   }
 
   .Search button{
