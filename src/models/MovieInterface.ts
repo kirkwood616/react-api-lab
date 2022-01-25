@@ -5,6 +5,7 @@ interface MovieInterface {
   overview: string;
   release_date: string;
   id: number;
+  runtime: number;
 }
 
 export default MovieInterface;
