@@ -1,45 +1,117 @@
-// import "./MoviePage.css";
+import "./MoviePage.css";
+import { release } from "os";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import MovieInterface from "../models/MovieInterface";
 import { fetchCertification, fetchMovie } from "../services/MovieDbApiService";
+import { handleWatchListGroup, WatchListGroup } from "../models/WatchListGroup";
 
 function MoviePage() {
   const [movie, setMovie] = useState<MovieInterface>();
-  const [certification, setCertification] = useState<any[]>([]);
+  const [rating, setRating] = useState<String>();
+  const [releaseDate, setReleaseDate] = useState<String>("");
   const id: number = Number(useParams().id!);
 
-  console.log(certification);
-
-  // console.log(id);
-  // console.log(certification);
-
-  // API HOOK
+  // API HOOKS
   useEffect(() => {
     fetchMovie(id).then((data) => setMovie(data));
   }, [id]);
 
   useEffect(() => {
     fetchCertification(id).then((data) => {
-      setCertification(data);
+      let certUS = data.find((e: any) => e.iso_3166_1 === "US");
+      let rated = certUS.release_dates.find((date: any) => date.certification);
+      rated ? setRating(rated.certification) : setRating("NR");
+      setReleaseDate(rated.release_date);
     });
   }, [id]);
 
-  let certUS = certification.find((e) => e.iso_3166_1 === "US");
+  // FORMAT RELEASE DATE
+  function releaseDateConvert(date: string): String {
+    let newDate: string = releaseDate.slice(0, 9);
+    const [year, month, day] = newDate.split("-");
+    const dateObj = { month, day, year };
+    const dateFormat = `${dateObj.month}/${dateObj.day}/${dateObj.year}`;
+    return dateFormat;
+  }
 
-  console.log(certUS);
+  // FORMAT MOVIE LENGTH FUNCTION
+  function timeConvert(time: number): String {
+    let hours = Math.floor(time / 60);
+    let minutes = Math.round(time % 60);
+    return hours < 1 ? `${minutes}m` : `${hours}h ${minutes}m`;
+  }
+
+  // BACKGROUND COLOR
+  let bgColor = "";
+
+  // WORKAROUND FOR NOT KNOWING CONTEXT YET - DUPLICATE WATCHLIST STATE
+  let [watchList, setWatchList] = useState<MovieInterface[]>(WatchListGroup);
+
+  function handleWatchList(movie: MovieInterface) {
+    let index: number = watchList.findIndex((e) => e.id === movie.id);
+
+    if (watchList.length && index + 1) {
+      setWatchList((prev) => [
+        ...prev.slice(0, index),
+        ...prev.slice(index + 1),
+      ]);
+    } else {
+      setWatchList((prev) => [...watchList, movie]);
+    }
+    handleWatchListGroup(movie);
+  }
+
+  if (movie && movie.vote_average <= 4) {
+    bgColor = "red";
+  } else if (movie && movie.vote_average >= 4.1 && movie.vote_average <= 5.9) {
+    bgColor = "yellow";
+  } else {
+    bgColor = "green";
+  }
+
+  console.log(movie?.genres);
 
   // PAGE RENDER
   return (
     <div className="MoviePage">
-      <h1>Movie Page</h1>
-      <img
-        src={`https://image.tmdb.org/t/p/w300/${movie?.poster_path}`}
-        alt={`${movie?.title} Movie Poster`}
-      />
-      <p>{movie?.vote_average}</p>
-      <p>{movie?.title}</p>
-      <p>{movie?.overview}</p>
+      <div className="movieContainer">
+        <div className="movieImageContainer">
+          <img
+            src={`https://image.tmdb.org/t/p/w300/${movie?.poster_path}`}
+            alt={`${movie?.title} Movie Poster`}
+          />
+        </div>
+        <div className="movieInfo">
+          <p>
+            <h3>
+              {" "}
+              {movie?.title} ({releaseDate.slice(0, 4)})
+            </h3>
+          </p>
+          <p>
+            <span className="rating">{rating}</span>
+            {releaseDateConvert(String(releaseDate))} •{" "}
+            {movie?.genres.map((genre, index) =>
+              index ? " / " + genre.name : "" + genre.name
+            )}{" "}
+            • {timeConvert(Number(movie?.runtime))}
+          </p>
+          <div className="ratingWatchContainer">
+            <div className="Rating" style={{ backgroundColor: bgColor }}>
+              <div className="RatingInner">
+                {movie ? movie?.vote_average * 10 : "N/A"}
+                <span className="Percent">%</span>
+              </div>
+            </div>
+            <button id="addWatchList">+ WATCHLIST</button>
+            {/* <p>{movie ? movie?.vote_average * 10 + "%" : "N/A"}</p> */}
+          </div>
+          <p className="tagLine">{movie?.tagline}</p>
+          <h4>Overview</h4>
+          <p className="overview">{movie?.overview}</p>
+        </div>
+      </div>
     </div>
   );
 }
