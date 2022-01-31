@@ -12,75 +12,77 @@
   box-shadow: 0 0 20px black;
 }
 
-h1{
+h1 {
   text-align: center;
   margin-top: 0px;
 }
 
-h2{
-  -webkit-box-shadow: 5px 5px 0px 0px #289FED, 10px 10px 0px 0px #5FB8FF, 15px 15px 0px 0px #A1D8FF, 20px 20px 0px 0px #CAE6FF, 25px 25px 0px 0px #E1EEFF, 5px 5px 15px 5px rgba(0,0,0,0); 
-  box-shadow: 5px 5px 0px 0px #289FED, 10px 10px 0px 0px #5FB8FF, 15px 15px 0px 0px #A1D8FF, 20px 20px 0px 0px #CAE6FF, 25px 25px 0px 0px #E1EEFF, 5px 5px 15px 5px rgba(0,0,0,0);
+h2 {
+  -webkit-box-shadow: 5px 5px 0px 0px #289fed, 10px 10px 0px 0px #5fb8ff,
+    15px 15px 0px 0px #a1d8ff, 20px 20px 0px 0px #cae6ff,
+    25px 25px 0px 0px #e1eeff, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+  box-shadow: 5px 5px 0px 0px #289fed, 10px 10px 0px 0px #5fb8ff,
+    15px 15px 0px 0px #a1d8ff, 20px 20px 0px 0px #cae6ff,
+    25px 25px 0px 0px #e1eeff, 5px 5px 15px 5px rgba(0, 0, 0, 0);
   padding: 5px 15px 15px 0;
 }
 .Search {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background-color: #22303c;
-    box-shadow: 0 0 20px black;
-    margin: 40px;
-    padding: 20px 20px 30px 20px;
-    font-weight: bold;
-    font-size: 20px;
-    border-radius: 2px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #22303c;
+  box-shadow: 0 0 20px black;
+  margin: 40px;
+  padding: 20px 20px 30px 20px;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 2px;
 }
 
-form{
+form {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
 }
 
-select#genre{
-  width:auto;
+select#genre {
+  width: auto;
 }
 
-select#rating{
-  width:auto;
+select#rating {
+  width: auto;
 }
 
-input#score{
-  width:auto;
+input#score {
+  width: auto;
 }
 
 .Movie button {
-    background-color: #22303c;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    transition: 0.2s;
-    font-weight: bold;
-  }
+  background-color: #22303c;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  transition: 0.2s;
+  font-weight: bold;
+}
 
 .Movie button:hover {
-    background-color: #8899a6;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    transition: 0.2s;
-    font-weight: bold;
-  }
-
-
+  background-color: #8899a6;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  transition: 0.2s;
+  font-weight: bold;
+}
 
 .Header ul li {
   display: inline;
@@ -95,7 +97,7 @@ input#score{
   padding-left: 15px;
 }
 
-.Search button{
+.Search button {
   background-color: #8899a6;
   border: none;
   color: white;
@@ -107,14 +109,12 @@ input#score{
   font-weight: bold;
   border-radius: 2px;
   box-shadow: 0 0 20px black;
-
 }
 
-.Search button:hover{
+.Search button:hover {
   background-color: black;
   transition: 0.2s;
   border-radius: 2px;
-
 }
 
 .Results {
@@ -130,14 +130,13 @@ input#score{
   box-shadow: 0 0 20px black;
   text-align: center;
   max-width: 300px;
-  transition: all .2s ease-in-out;
+  transition: all 0.2s ease-in-out;
   cursor: pointer;
 }
 
-.Movie:hover{
-    transform: scale(1.02);
-    cursor: pointer; 
-
+.Movie:hover {
+  transform: scale(1.02);
+  cursor: pointer;
 }
 
 .Movie img {
@@ -182,124 +181,118 @@ input#score{
   font-weight: normal;
 }
 
-.Movie #addWatchList{
-    margin: 20px;
+.Movie #addWatchList {
+  margin: 20px;
+  cursor: pointer;
 }
 
-.WatchList{
+.WatchList {
   margin-top: 20px;
 }
 
-.watchListContainer{
+.watchListContainer {
   margin: 15px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 
-div.attribution{
-  display:flex;
+div.attribution {
+  display: flex;
   justify-content: center;
 }
 
-@media only screen and (max-width: 800px) { 
-
-  h1{
-    margin: 0px;  
+@media only screen and (max-width: 800px) {
+  h1 {
+    margin: 0px;
   }
 
-  .Search{
-      background-color: #22303c;
-      box-shadow: 0 0 20px black;
-      margin: 30px;
-      padding: 20px;
-      height:300px;
+  .Search {
+    background-color: #22303c;
+    box-shadow: 0 0 20px black;
+    margin: 30px;
+    padding: 20px;
+    height: 300px;
   }
 
-  form{
+  form {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: stretch;
-
   }
 
-  select#genre{
-    width:100%;
+  select#genre {
+    width: 100%;
   }
 
-  select#rating{
-    width:100%;
+  select#rating {
+    width: 100%;
   }
 
-  input#score{
-    width:98%;
+  input#score {
+    width: 98%;
   }
 
-  .Search button{
+  .Search button {
     display: flex;
     margin: 25px auto 0px;
   }
- }
+}
 
- @media only screen and (min-width: 801px) and (max-width: 1190px){
-  h1{
-    margin: 0px;  
+@media only screen and (min-width: 801px) and (max-width: 1190px) {
+  h1 {
+    margin: 0px;
   }
 
-    .Search{
-      background-color: #22303c;
-      box-shadow: 0 0 20px black;
-      margin: 30px;
-      padding: 5px 100px;
-      height: 225px;
+  .Search {
+    background-color: #22303c;
+    box-shadow: 0 0 20px black;
+    margin: 30px;
+    padding: 5px 100px;
+    height: 225px;
   }
 
-  form{
+  form {
     display: flex;
-    flex-direction:column;
+    flex-direction: column;
     justify-content: space-between;
     margin: 0px auto;
     align-items: stretch;
   }
 
-  div.genre{
+  div.genre {
     /* min-width: 300px;
     max-width:400px; */
     display: flex;
     justify-content: space-between;
     min-width: 350px;
-
   }
 
-  select{
+  select {
     width: 110px;
   }
 
-  div.rating{
+  div.rating {
     /* min-width: 300px;
     max-width:400px; */
     display: flex;
     justify-content: space-between;
   }
 
-  div.score{
+  div.score {
     /* min-width: 298px; */
     /* max-width:400px; */
     display: flex;
     justify-content: space-between;
   }
 
-  input#score{
-    width:108px;
+  input#score {
+    width: 108px;
   }
 
-  .Search button{
+  .Search button {
     display: flex;
     margin: 25px auto 0px;
   }
- }
-
- 
-
- 
+}
