@@ -33,7 +33,6 @@ function Results({ movies }: Props) {
         <Movie key={i} movie={movie} onAdd={() => handleWatchList(movie)} />
       ))}
     </div>
-    
   );
 }
 

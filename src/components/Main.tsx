@@ -23,6 +23,7 @@ function Main() {
   return (
     <div className="Main">
       <Search onSubmit={setSearch} />
+      <h1>{search ? "Search Results" : "Trending Movies"}</h1>
       <Results movies={movies} />
       <div className="attribution">
         <a
