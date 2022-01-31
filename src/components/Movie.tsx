@@ -34,7 +34,7 @@ function Movie({ movie, onAdd }: Props) {
         </div>
       </div>
       <button id="addWatchList" onClick={onAdd}>
-        + WATCHLIST
+        {movie.inWatchList ? "- WATCHLIST" : "+ WATCHLIST"}
       </button>
     </div>
   );

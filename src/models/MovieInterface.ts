@@ -13,6 +13,7 @@ interface MovieInterface {
       name: string;
     }
   ];
+  inWatchList: boolean;
 }
 
 export default MovieInterface;
