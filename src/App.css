@@ -39,6 +39,10 @@ h2 {
   border-radius: 2px;
 }
 
+button {
+  cursor: pointer;
+}
+
 form {
   display: flex;
   flex-direction: row;
@@ -183,7 +187,6 @@ input#score {
 
 .Movie #addWatchList {
   margin: 20px;
-  cursor: pointer;
 }
 
 .WatchList {
