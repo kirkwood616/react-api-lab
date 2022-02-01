@@ -68,7 +68,8 @@ function MoviePage() {
     bgColor = "green";
   }
 
-  // console.log(releaseDate);
+  let watchListCheck = watchList.find((e) => e.id === movie?.id);
+  // console.log(watchCheck);
 
   // PAGE RENDER
   return (
@@ -102,7 +103,7 @@ function MoviePage() {
               </div>
             </div>
             <button id="addWatchList" onClick={() => handleWatchList(movie!)}>
-              {movie?.inWatchList ? "- WATCHLIST" : "+ WATCHLIST"}
+              {watchListCheck ? "- WATCHLIST" : "+ WATCHLIST"}
             </button>
             {/* <p>{movie ? movie?.vote_average * 10 + "%" : "N/A"}</p> */}
           </div>
