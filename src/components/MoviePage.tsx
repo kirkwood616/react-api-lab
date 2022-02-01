@@ -1,5 +1,4 @@
 import "./MoviePage.css";
-import { release } from "os";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import MovieInterface from "../models/MovieInterface";
@@ -102,7 +101,9 @@ function MoviePage() {
                 <span className="Percent">%</span>
               </div>
             </div>
-            <button id="addWatchList">+ WATCHLIST</button>
+            <button id="addWatchList" onClick={() => handleWatchList(movie!)}>
+              {movie?.inWatchList ? "- WATCHLIST" : "+ WATCHLIST"}
+            </button>
             {/* <p>{movie ? movie?.vote_average * 10 + "%" : "N/A"}</p> */}
           </div>
           <p className="tagLine">{movie?.tagline}</p>
