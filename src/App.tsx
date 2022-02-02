@@ -4,9 +4,6 @@ import Header from "./components/Header";
 import Main from "./components/Main";
 import MoviePage from "./components/MoviePage";
 import WatchList from "./components/WatchList";
-import MovieInterface from "./models/MovieInterface";
-import { WatchListGroup, handleWatchListGroup } from "./models/WatchListGroup";
-import { useState } from "react";
 
 function App() {
   return (

@@ -8,7 +8,7 @@ import { handleWatchListGroup, WatchListGroup } from "../models/WatchListGroup";
 function MoviePage() {
   const [movie, setMovie] = useState<MovieInterface>();
   const [rating, setRating] = useState<String>();
-  const [releaseDate, setReleaseDate] = useState<String>("");
+  const [, setReleaseDate] = useState<String>("");
   const id: number = Number(useParams().id!);
 
   // API HOOKS
@@ -69,7 +69,6 @@ function MoviePage() {
   }
 
   let watchListCheck = watchList.find((e) => e.id === movie?.id);
-  // console.log(watchCheck);
 
   // PAGE RENDER
   return (
@@ -105,7 +104,6 @@ function MoviePage() {
             <button id="addWatchList" onClick={() => handleWatchList(movie!)}>
               {watchListCheck ? "- WATCHLIST" : "+ WATCHLIST"}
             </button>
-            {/* <p>{movie ? movie?.vote_average * 10 + "%" : "N/A"}</p> */}
           </div>
           <p className="tagLine">{movie?.tagline}</p>
           <h4>Overview</h4>
