@@ -11,7 +11,7 @@ function App() {
       <Router>
         <Header />
         <Routes>
-          <Route path="/" element={<Main />} />
+          <Route path="/react-api-lab" element={<Main />} />
           <Route path="/watchlist" element={<WatchList />} />
           <Route path="/movie/:id" element={<MoviePage />} />
         </Routes>
