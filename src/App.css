@@ -1,7 +1,6 @@
 .Header {
   display: flex;
   justify-content: space-between;
-  flex-direction: row;
   position: sticky;
   font-size: larger;
   top: 0;
@@ -94,11 +93,11 @@ input#score {
 }
 
 .Header li {
-  padding-left: 15px;
+  padding-left: 10px;
 }
 
 .Header .pipe {
-  padding-left: 15px;
+  padding-left: 10px;
 }
 
 .Search button {
@@ -203,6 +202,13 @@ input#score {
 div.attribution {
   display: flex;
   justify-content: center;
+}
+
+@media only screen and (max-width: 480px) {
+  h2 {
+    font-size: 1rem;
+    padding: 5px 5px 5px 0;
+  }
 }
 
 @media only screen and (max-width: 800px) {
