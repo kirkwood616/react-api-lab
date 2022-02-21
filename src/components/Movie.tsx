@@ -27,7 +27,8 @@ function Movie({ movie, onAdd }: Props) {
   // RENDER PAGE
   return (
     <div className="Movie">
-      <Link to={`/movie/${movie.id}`}>
+      {/* <Link to={`/movie/${movie.id}`}> */}
+      <Link to={`/react-api-lab/movie/${movie.id}`}>
         <img
           src={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`}
           alt={`${movie.title} Movie Poster`}
