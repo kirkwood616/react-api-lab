@@ -17,12 +17,10 @@ h1 {
 }
 
 h2 {
-  -webkit-box-shadow: 5px 5px 0px 0px #289fed, 10px 10px 0px 0px #5fb8ff,
-    15px 15px 0px 0px #a1d8ff, 20px 20px 0px 0px #cae6ff,
-    25px 25px 0px 0px #e1eeff, 5px 5px 15px 5px rgba(0, 0, 0, 0);
-  box-shadow: 5px 5px 0px 0px #289fed, 10px 10px 0px 0px #5fb8ff,
-    15px 15px 0px 0px #a1d8ff, 20px 20px 0px 0px #cae6ff,
-    25px 25px 0px 0px #e1eeff, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+  -webkit-box-shadow: 5px 5px 0px 0px #289fed, 10px 10px 0px 0px #5fb8ff, 15px 15px 0px 0px #a1d8ff, 20px 20px 0px 0px #cae6ff, 25px 25px 0px 0px #e1eeff,
+    5px 5px 15px 5px rgba(0, 0, 0, 0);
+  box-shadow: 5px 5px 0px 0px #289fed, 10px 10px 0px 0px #5fb8ff, 15px 15px 0px 0px #a1d8ff, 20px 20px 0px 0px #cae6ff, 25px 25px 0px 0px #e1eeff,
+    5px 5px 15px 5px rgba(0, 0, 0, 0);
   padding: 5px 15px 15px 0;
 }
 .Search {
@@ -61,28 +59,24 @@ input#score {
   width: auto;
 }
 
-.Movie button {
-  background-color: #22303c;
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  transition: 0.2s;
-  font-weight: bold;
+.Movie .addWatchList {
+  background-color: black;
 }
 
-.Movie button:hover {
-  background-color: #8899a6;
-  border: none;
+.Movie .inWatchList {
+  background-color: #289fed;
+}
+
+.Movie button {
+  border: 1px solid black;
+  border-radius: 50%;
   color: white;
-  padding: 15px 32px;
+  width: 50px;
+  height: 50px;
+  margin: 20px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
   transition: 0.2s;
   font-weight: bold;
 }
@@ -182,10 +176,6 @@ input#score {
 .Movie .Percent {
   font-size: 0.65rem;
   font-weight: normal;
-}
-
-.Movie #addWatchList {
-  margin: 20px;
 }
 
 .WatchList {

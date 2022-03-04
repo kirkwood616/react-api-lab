@@ -1,0 +1,11 @@
+.Bookmark {
+  display: flex;
+  justify-content: center;
+}
+
+.Bookmark svg {
+  width: 35px;
+  height: 35px;
+  margin: 0;
+  transition: 0.2s;
+}
