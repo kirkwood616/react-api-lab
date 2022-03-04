@@ -1,4 +1,3 @@
-// import "./Search.css";
 import { FormEvent, useEffect, useState } from "react";
 import Genre from "../models/GenreInterface";
 import { fetchGenre } from "../services/MovieDbApiService";
@@ -17,8 +16,7 @@ function Search({ onSubmit }: Props) {
   let searchParams: string = "";
 
   if (genre) searchParams += `&with_genres=${genre}`;
-  if (rating)
-    searchParams += `&certification_country=US&certification=${rating}`;
+  if (rating) searchParams += `&certification_country=US&certification=${rating}`;
   if (minScore) searchParams += `&vote_average.gte=${minScore}`;
 
   // API HOOK FOR GENRES LIST & VALUE
@@ -34,17 +32,14 @@ function Search({ onSubmit }: Props) {
 
   return (
     <div className="Search">
-      <div><h1>Search</h1></div>
+      <div>
+        <h1>Search</h1>
+      </div>
       <form name="searchForm" onSubmit={handleSubmit}>
         {/* GENRE */}
         <div className="genre">
           <label htmlFor="genre">Genre: </label>
-          <select
-            name="genre"
-            id="genre"
-            value={genre}
-            onChange={(e) => setGenre(Number(e.target.value))}
-          >
+          <select name="genre" id="genre" value={genre} onChange={(e) => setGenre(Number(e.target.value))}>
             <option value="">Any</option>
             {genreList.map((genre, i) => (
               <option value={genre.id} key={i}>
@@ -56,12 +51,7 @@ function Search({ onSubmit }: Props) {
         {/* RATING */}
         <div className="rating">
           <label htmlFor="rating">MPAA Rating: </label>
-          <select
-            name="rating"
-            id="rating"
-            value={rating}
-            onChange={(e) => setRating(e.target.value)}
-          >
+          <select name="rating" id="rating" value={rating} onChange={(e) => setRating(e.target.value)}>
             <option value="">Any</option>
             <option value="NR">NR - Not Rated</option>
             <option value="G">G</option>
@@ -74,15 +64,7 @@ function Search({ onSubmit }: Props) {
         {/* SCORE */}
         <div className="score">
           <label htmlFor="score">Minimum Score (%): </label>
-          <input
-            type="number"
-            min={0}
-            max={100}
-            step={1}
-            name="score"
-            id="score"
-            onChange={(e) => setMinScore(Number(e.target.value) / 10)}
-          />
+          <input type="number" min={0} max={100} step={1} name="score" id="score" onChange={(e) => setMinScore(Number(e.target.value) / 10)} />
         </div>
         <div className="searchButton">
           <button type="submit">SEARCH</button>

@@ -12,6 +12,4 @@ export function handleWatchListGroup(movie: MovieInterface) {
     movie.inWatchList = true;
     WatchListGroup.push(movie);
   }
-  // console.log("HANDLE WATCH LIST");
-  // console.log(WatchListGroup);
 }
