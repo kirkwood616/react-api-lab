@@ -1,4 +1,3 @@
-// import "./Main.css";
 import { useEffect, useState } from "react";
 import MovieInterface from "../models/MovieInterface";
 import { fetchPopular, fetchSearch } from "../services/MovieDbApiService";
@@ -26,11 +25,7 @@ function Main() {
       <h1>{search ? "Search Results" : "Trending Movies"}</h1>
       <Results movies={movies} />
       <div className="attribution">
-        <a
-          href="https://www.themoviedb.org/?language=en-US"
-          target="blank"
-          rel="noopener noreferrer"
-        >
+        <a href="https://www.themoviedb.org/?language=en-US" target="blank" rel="noopener noreferrer">
           Powered by:
           <br />
           <img

@@ -1,15 +1,18 @@
 import "./MoviePage.css";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import MovieInterface from "../models/MovieInterface";
 import { fetchCertification, fetchMovie } from "../services/MovieDbApiService";
-import { handleWatchListGroup, WatchListGroup } from "../models/WatchListGroup";
+import AppContext from "../context/AppContext";
+import Bookmark from "./Bookmark";
 
 function MoviePage() {
+  let { watchList, handleWatchList } = useContext(AppContext);
   const [movie, setMovie] = useState<MovieInterface>();
   const [rating, setRating] = useState<String>();
   const [, setReleaseDate] = useState<String>("");
   const id: number = Number(useParams().id!);
+  let watchListCheck: MovieInterface | undefined = watchList.find((e) => e.id === movie?.id);
 
   // API HOOKS
   useEffect(() => {
@@ -43,23 +46,6 @@ function MoviePage() {
   // BACKGROUND COLOR
   let bgColor = "";
 
-  // WORKAROUND FOR NOT KNOWING CONTEXT YET - DUPLICATE WATCHLIST STATE
-  let [watchList, setWatchList] = useState<MovieInterface[]>(WatchListGroup);
-
-  function handleWatchList(movie: MovieInterface) {
-    let index: number = watchList.findIndex((e) => e.id === movie.id);
-
-    if (watchList.length && index + 1) {
-      setWatchList((prev) => [
-        ...prev.slice(0, index),
-        ...prev.slice(index + 1),
-      ]);
-    } else {
-      setWatchList((prev) => [...watchList, movie]);
-    }
-    handleWatchListGroup(movie);
-  }
-
   if (movie && movie.vote_average <= 4) {
     bgColor = "red";
   } else if (movie && movie.vote_average >= 4.1 && movie.vote_average <= 5.9) {
@@ -68,17 +54,12 @@ function MoviePage() {
     bgColor = "green";
   }
 
-  let watchListCheck = watchList.find((e) => e.id === movie?.id);
-
   // PAGE RENDER
   return (
     <div className="MoviePage">
       <div className="movieContainer">
         <div className="movieImageContainer">
-          <img
-            src={`https://image.tmdb.org/t/p/w300/${movie?.poster_path}`}
-            alt={`${movie?.title} Movie Poster`}
-          />
+          <img src={`https://image.tmdb.org/t/p/w300/${movie?.poster_path}`} alt={`${movie?.title} Movie Poster`} />
         </div>
         <div className="movieInfo">
           <h3>
@@ -88,11 +69,8 @@ function MoviePage() {
 
           <p>
             <span className="rated">{rating}</span>
-            {releaseDateConvert(String(movie?.release_date))} •{" "}
-            {movie?.genres.map((genre, index) =>
-              index ? " / " + genre.name : "" + genre.name
-            )}{" "}
-            • {timeConvert(Number(movie?.runtime))}
+            {releaseDateConvert(String(movie?.release_date))} • {movie?.genres.map((genre, index) => (index ? " / " + genre.name : "" + genre.name))} •{" "}
+            {timeConvert(Number(movie?.runtime))}
           </p>
           <div className="ratingWatchContainer">
             <div className="Rating" style={{ backgroundColor: bgColor }}>
@@ -101,8 +79,8 @@ function MoviePage() {
                 <span className="Percent">%</span>
               </div>
             </div>
-            <button id="addWatchList" onClick={() => handleWatchList(movie!)}>
-              {watchListCheck ? "- WATCHLIST" : "+ WATCHLIST"}
+            <button className={watchListCheck ? "inWatchList" : "addWatchList"} onClick={() => handleWatchList(movie!)}>
+              <Bookmark check={watchListCheck} />
             </button>
           </div>
           <p className="tagLine">{movie?.tagline}</p>

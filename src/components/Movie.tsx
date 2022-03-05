@@ -1,17 +1,15 @@
-import { useState } from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import AppContext from "../context/AppContext";
 import MovieInterface from "../models/MovieInterface";
-import { WatchListGroup } from "../models/WatchListGroup";
 import Bookmark from "./Bookmark";
 
 interface Props {
   movie: MovieInterface;
-  onAdd: () => void;
 }
-// SINGULAR MOVIE - NOT THE ARRAY OF MOVIES
-function Movie({ movie, onAdd }: Props) {
-  // WORKAROUND FOR NOT KNOWING CONTEXT YET - DUPLICATE WATCHLIST STATE
-  let [watchList] = useState<MovieInterface[]>(WatchListGroup);
+
+function Movie({ movie }: Props) {
+  let { watchList, handleWatchList } = useContext(AppContext);
 
   let watchListCheck: MovieInterface | undefined = watchList.find((e) => e.id === movie?.id);
 
@@ -24,6 +22,7 @@ function Movie({ movie, onAdd }: Props) {
   } else {
     bgColor = "green";
   }
+
   // RENDER PAGE
   return (
     <div className="Movie">
@@ -31,15 +30,17 @@ function Movie({ movie, onAdd }: Props) {
         <img src={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`} alt={`${movie.title} Movie Poster`} />
       </Link>
       <p className="Title">{movie.title}</p>
-      <div className="Rating" style={{ backgroundColor: bgColor }}>
-        <div className="RatingInner">
-          {movie.vote_average * 10}
-          <span className="Percent">%</span>
+      <div className="bottomContainer">
+        <div className="Rating" style={{ backgroundColor: bgColor }}>
+          <div className="RatingInner">
+            {movie.vote_average * 10}
+            <span className="Percent">%</span>
+          </div>
         </div>
+        <button className={watchListCheck ? "inWatchList" : "addWatchList"} onClick={() => handleWatchList(movie)}>
+          <Bookmark check={watchListCheck} />
+        </button>
       </div>
-      <button className={watchListCheck ? "inWatchList" : "addWatchList"} onClick={onAdd}>
-        <Bookmark check={watchListCheck} />
-      </button>
     </div>
   );
 }

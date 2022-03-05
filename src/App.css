@@ -23,6 +23,7 @@ h2 {
     5px 5px 15px 5px rgba(0, 0, 0, 0);
   padding: 5px 15px 15px 0;
 }
+
 .Search {
   display: flex;
   flex-direction: column;
@@ -59,21 +60,86 @@ input#score {
   width: auto;
 }
 
-.Movie .addWatchList {
+.addWatchList {
   background-color: black;
 }
 
-.Movie .inWatchList {
+.inWatchList {
   background-color: #289fed;
+}
+
+.Movie {
+  margin: 15px 15px;
+  background-color: #192734;
+  box-shadow: 0 0 20px black;
+  text-align: center;
+  transition: all 0.2s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 280px;
+  padding-bottom: 1rem;
+}
+
+.Movie:hover {
+  transform: scale(1.02);
+}
+
+.Movie img {
+  min-height: 430px;
+  max-width: 100%;
+}
+
+.Movie .Title {
+  font-weight: bold;
+  font-size: 1rem;
+  word-wrap: break-word;
+}
+
+.Movie .bottomContainer {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+}
+
+.Movie .Rating {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25px;
+  height: 25px;
+  margin: 0 0.5rem;
+  padding: 15px;
+  border-radius: 50%;
+  font-weight: bold;
+  border: #15202b 2px solid;
+}
+
+.Movie .RatingInner {
+  background-color: #15202b;
+  border-radius: 50%;
+  padding: 10px;
+  min-width: 25px;
+  height: 25px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Movie .Percent {
+  font-size: 0.65rem;
+  font-weight: normal;
 }
 
 .Movie button {
   border: 1px solid black;
   border-radius: 50%;
   color: white;
-  width: 50px;
-  height: 50px;
-  margin: 20px;
+  width: 55px;
+  height: 55px;
+  margin: 0 0.5rem;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -92,6 +158,12 @@ input#score {
 
 .Header .pipe {
   padding-left: 10px;
+}
+
+.Header .watchListCount {
+  color: white;
+  border-radius: 50%;
+  font-weight: bold;
 }
 
 .Search button {
@@ -121,63 +193,6 @@ input#score {
   justify-content: center;
 }
 
-.Movie {
-  margin: 15px 15px;
-  background-color: #192734;
-  box-shadow: 0 0 20px black;
-  text-align: center;
-  max-width: 300px;
-  transition: all 0.2s ease-in-out;
-  cursor: pointer;
-}
-
-.Movie:hover {
-  transform: scale(1.02);
-  cursor: pointer;
-}
-
-.Movie img {
-  height: 420px;
-  width: 300px;
-}
-
-.Movie .Title {
-  font-weight: bold;
-  font-size: 1rem;
-  word-wrap: break-word;
-}
-
-.Movie .Rating {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 25px;
-  height: 25px;
-  margin: 0 auto;
-  padding: 15px;
-  border-radius: 50%;
-  font-weight: bold;
-  border: #15202b 2px solid;
-}
-
-.Movie .RatingInner {
-  background-color: #15202b;
-  border-radius: 50%;
-  padding: 10px;
-  min-width: 25px;
-  height: 25px;
-  margin: 0 auto;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.Movie .Percent {
-  font-size: 0.65rem;
-  font-weight: normal;
-}
-
 .WatchList {
   margin-top: 20px;
 }
@@ -192,6 +207,22 @@ input#score {
 div.attribution {
   display: flex;
   justify-content: center;
+}
+
+@media only screen and (max-width: 420px) {
+  .Header {
+    flex-direction: column;
+    justify-content: center;
+    padding: 0;
+  }
+
+  .Movie {
+    margin: 1rem 0;
+  }
+
+  .Movie img {
+    min-height: 100%;
+  }
 }
 
 @media only screen and (max-width: 480px) {
@@ -261,8 +292,6 @@ div.attribution {
   }
 
   div.genre {
-    /* min-width: 300px;
-    max-width:400px; */
     display: flex;
     justify-content: space-between;
     min-width: 350px;
@@ -273,15 +302,11 @@ div.attribution {
   }
 
   div.rating {
-    /* min-width: 300px;
-    max-width:400px; */
     display: flex;
     justify-content: space-between;
   }
 
   div.score {
-    /* min-width: 298px; */
-    /* max-width:400px; */
     display: flex;
     justify-content: space-between;
   }

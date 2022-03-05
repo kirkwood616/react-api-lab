@@ -1,32 +1,16 @@
-import { useState } from "react";
-import { WatchListGroup, handleWatchListGroup } from "../models/WatchListGroup";
+import { useContext } from "react";
 import Movie from "./Movie";
-import MovieInterface from "../models/MovieInterface";
+import AppContext from "../context/AppContext";
 
 export function WatchList() {
-  let [watchList, setWatchList] = useState<MovieInterface[]>(WatchListGroup);
-
-  function handleWatchList(movie: MovieInterface) {
-    // WORKAROUND FOR NOT KNOWING CONTEXT YET - DUPLICATE WATCHLIST STATE
-    let index: number = watchList.findIndex((e) => e.id === movie.id);
-
-    if (watchList.length && index + 1) {
-      setWatchList((prev) => [
-        ...prev.slice(0, index),
-        ...prev.slice(index + 1),
-      ]);
-    } else {
-      setWatchList((prev) => [...watchList, movie]);
-    }
-    handleWatchListGroup(movie);
-  }
+  let { watchList } = useContext(AppContext);
 
   return (
     <div className="WatchList">
       <h1>Your Watch List</h1>
       <div className="watchListContainer">
         {watchList.map((movie, i) => (
-          <Movie key={i} movie={movie} onAdd={() => handleWatchList(movie)} />
+          <Movie key={i} movie={movie} />
         ))}
       </div>
     </div>
