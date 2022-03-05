@@ -30,15 +30,17 @@ function Movie({ movie }: Props) {
         <img src={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`} alt={`${movie.title} Movie Poster`} />
       </Link>
       <p className="Title">{movie.title}</p>
-      <div className="Rating" style={{ backgroundColor: bgColor }}>
-        <div className="RatingInner">
-          {movie.vote_average * 10}
-          <span className="Percent">%</span>
+      <div className="bottomContainer">
+        <div className="Rating" style={{ backgroundColor: bgColor }}>
+          <div className="RatingInner">
+            {movie.vote_average * 10}
+            <span className="Percent">%</span>
+          </div>
         </div>
+        <button className={watchListCheck ? "inWatchList" : "addWatchList"} onClick={() => handleWatchList(movie)}>
+          <Bookmark check={watchListCheck} />
+        </button>
       </div>
-      <button className={watchListCheck ? "inWatchList" : "addWatchList"} onClick={() => handleWatchList(movie)}>
-        <Bookmark check={watchListCheck} />
-      </button>
     </div>
   );
 }
