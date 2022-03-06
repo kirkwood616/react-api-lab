@@ -16,7 +16,7 @@ export function WatchList() {
             ))}
           </>
         ) : (
-          <h3>No Movies... Try Adding Some</h3>
+          <h4>No Movies... Try Adding Some</h4>
         )}
       </div>
     </div>
