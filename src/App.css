@@ -24,6 +24,12 @@ h2 {
   padding: 5px 15px 15px 0;
 }
 
+h3 {
+  font-size: 1.5rem;
+  font-style: italic;
+  text-align: center;
+}
+
 .Search {
   display: flex;
   flex-direction: column;
@@ -145,6 +151,10 @@ input#score {
   display: inline-block;
   transition: 0.2s;
   font-weight: bold;
+}
+
+.Header ul {
+  padding: 0;
 }
 
 .Header ul li {

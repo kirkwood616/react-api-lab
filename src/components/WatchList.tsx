@@ -9,9 +9,15 @@ export function WatchList() {
     <div className="WatchList">
       <h1>Your Watch List</h1>
       <div className="watchListContainer">
-        {watchList.map((movie, i) => (
-          <Movie key={i} movie={movie} />
-        ))}
+        {watchList.length ? (
+          <>
+            {watchList.map((movie, index) => (
+              <Movie key={index} movie={movie} />
+            ))}
+          </>
+        ) : (
+          <h3>No Movies... Try Adding Some</h3>
+        )}
       </div>
     </div>
   );
