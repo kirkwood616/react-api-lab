@@ -7,10 +7,15 @@ function Header() {
   return (
     <div className="Header">
       <Link to="/react-api-lab">
-        <div className="logo">
-          <h2>
-            <span className="movie">Movie</span> <span className="hub">HUB</span>
-          </h2>
+        <div className="logoContainer">
+          <div className="reel"></div>
+          <div className="logo">
+            <h2>
+              <span className="movie">movie</span>
+              <span className="hub">HUB</span>
+            </h2>
+          </div>
+          <div className="reel"></div>
         </div>
       </Link>
       <ul>
