@@ -1,3 +1,18 @@
+h1 {
+  text-align: center;
+  margin-top: 0px;
+}
+
+h2 {
+  margin: 0;
+}
+
+h4 {
+  font-size: 1.5rem;
+  font-style: italic;
+  text-align: center;
+}
+
 .Header {
   display: flex;
   justify-content: space-between;
@@ -6,28 +21,47 @@
   top: 0;
   background-color: #22303c;
   align-items: center;
-  padding: 0px 30px 15px;
+  padding: 1rem 2rem;
   z-index: 1;
   box-shadow: 0 0 20px black;
 }
 
-h1 {
-  text-align: center;
-  margin-top: 0px;
+.Header .logo {
+  background-color: #289fed;
+  border-radius: 0.5rem 0 0.5rem 0;
+  padding: 0.5rem;
 }
 
-h2 {
-  -webkit-box-shadow: 5px 5px 0px 0px #289fed, 10px 10px 0px 0px #5fb8ff, 15px 15px 0px 0px #a1d8ff, 20px 20px 0px 0px #cae6ff, 25px 25px 0px 0px #e1eeff,
-    5px 5px 15px 5px rgba(0, 0, 0, 0);
-  box-shadow: 5px 5px 0px 0px #289fed, 10px 10px 0px 0px #5fb8ff, 15px 15px 0px 0px #a1d8ff, 20px 20px 0px 0px #cae6ff, 25px 25px 0px 0px #e1eeff,
-    5px 5px 15px 5px rgba(0, 0, 0, 0);
-  padding: 5px 15px 15px 0;
+.Header .movie {
+  color: white;
+  text-decoration: none;
 }
 
-h4 {
-  font-size: 1.5rem;
-  font-style: italic;
-  text-align: center;
+.Header .hub {
+  color: white;
+}
+
+.Header ul {
+  padding: 0;
+}
+
+.Header ul li {
+  display: inline;
+  list-style-type: none;
+}
+
+.Header li {
+  padding-left: 10px;
+}
+
+.Header .pipe {
+  padding-left: 10px;
+}
+
+.Header .watchListCount {
+  color: white;
+  border-radius: 50%;
+  font-weight: bold;
 }
 
 .Search {
@@ -40,6 +74,26 @@ h4 {
   padding: 20px 20px 30px 20px;
   font-weight: bold;
   font-size: 20px;
+  border-radius: 2px;
+}
+
+.Search button {
+  background-color: #8899a6;
+  border: none;
+  color: white;
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  transition: 0.2s;
+  font-weight: bold;
+  border-radius: 2px;
+  box-shadow: 0 0 20px black;
+}
+
+.Search button:hover {
+  background-color: black;
+  transition: 0.2s;
   border-radius: 2px;
 }
 
@@ -153,49 +207,6 @@ input#score {
   font-weight: bold;
 }
 
-.Header ul {
-  padding: 0;
-}
-
-.Header ul li {
-  display: inline;
-  list-style-type: none;
-}
-
-.Header li {
-  padding-left: 10px;
-}
-
-.Header .pipe {
-  padding-left: 10px;
-}
-
-.Header .watchListCount {
-  color: white;
-  border-radius: 50%;
-  font-weight: bold;
-}
-
-.Search button {
-  background-color: #8899a6;
-  border: none;
-  color: white;
-  padding: 10px 25px;
-  text-align: center;
-  text-decoration: none;
-  font-size: 16px;
-  transition: 0.2s;
-  font-weight: bold;
-  border-radius: 2px;
-  box-shadow: 0 0 20px black;
-}
-
-.Search button:hover {
-  background-color: black;
-  transition: 0.2s;
-  border-radius: 2px;
-}
-
 .Results {
   margin: 15px;
   display: flex;
@@ -219,11 +230,25 @@ div.attribution {
   justify-content: center;
 }
 
+@media only screen and (max-width: 300px) {
+  .Header ul {
+    font-size: 1rem;
+  }
+}
+
 @media only screen and (max-width: 420px) {
   .Header {
     flex-direction: column;
     justify-content: center;
     padding: 0;
+  }
+
+  .Header .logo {
+    margin-top: 0.5rem;
+  }
+
+  .Header ul li:first-child {
+    padding-left: 0;
   }
 
   .Movie {
@@ -237,8 +262,7 @@ div.attribution {
 
 @media only screen and (max-width: 480px) {
   h2 {
-    font-size: 1rem;
-    padding: 5px 5px 5px 0;
+    font-size: 1.5rem;
   }
 }
 

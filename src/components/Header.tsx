@@ -6,7 +6,13 @@ function Header() {
   let { watchList } = useContext(AppContext);
   return (
     <div className="Header">
-      <h2>Movie HUB</h2>
+      <Link to="/react-api-lab">
+        <div className="logo">
+          <h2>
+            <span className="movie">Movie</span> <span className="hub">HUB</span>
+          </h2>
+        </div>
+      </Link>
       <ul>
         <li>
           {/* <Link to="/">Home</Link> */}

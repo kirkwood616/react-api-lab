@@ -1,7 +1,7 @@
 .MoviePage {
   font-weight: 600;
   margin: 0 auto;
-  width: 100vw;
+  width: 100%;
   display: flex;
   justify-content: center;
 }
@@ -26,6 +26,7 @@
 .MoviePage h4 {
   font-size: 1.25rem;
   font-weight: bolder;
+  text-align: left;
 }
 
 .MoviePage .rated {
@@ -87,6 +88,13 @@
   font-weight: bold;
 }
 
+@media only screen and (max-width: 420px) {
+  .movieImageContainer > img {
+    min-height: 100%;
+    max-width: 100%;
+  }
+}
+
 @media only screen and (max-width: 768px) {
   .MoviePage .movieContainer {
     flex-direction: column;
@@ -100,6 +108,16 @@
 
   .MoviePage .movieInfo {
     margin: 0;
+    text-align: center;
+  }
+
+  .MoviePage .rated {
+    display: block;
+    width: fit-content;
+    margin: 0 auto 0.5rem auto;
+  }
+
+  .MoviePage h4 {
     text-align: center;
   }
 
