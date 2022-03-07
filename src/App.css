@@ -82,46 +82,52 @@ h4 {
 .Search {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  background-color: #22303c;
-  box-shadow: 0 0 20px black;
-  margin: 40px;
-  padding: 20px 20px 30px 20px;
+  align-items: center;
+  background: rgb(21, 32, 43);
+  background: linear-gradient(90deg, rgba(21, 32, 43, 1) 0%, rgba(34, 48, 60, 1) 35%, rgba(34, 48, 60, 1) 65%, rgba(21, 32, 43, 1) 100%);
+  margin-bottom: 1rem;
+  padding: 1rem;
   font-weight: bold;
   font-size: 20px;
   border-radius: 2px;
+  text-align: center;
+}
+
+.searchButton {
+  display: inline;
 }
 
 .Search button {
-  background-color: #8899a6;
+  background-color: #289fed;
+  border-radius: 0 1rem 1rem 0;
   border: none;
   color: white;
-  padding: 10px 25px;
+  padding: 0 1.25rem 2px 1.25rem;
+  padding-bottom: 2px;
+  height: 2.6rem;
   text-align: center;
   text-decoration: none;
   font-size: 16px;
   transition: 0.2s;
   font-weight: bold;
-  border-radius: 2px;
-  box-shadow: 0 0 20px black;
 }
 
 .Search button:hover {
-  background-color: black;
+  background-color: #289fed;
   transition: 0.2s;
-  border-radius: 2px;
+}
+
+.toggleSearch {
+  color: #289fed;
+  cursor: pointer;
+}
+
+.toggleSearch:hover {
+  text-decoration: underline;
 }
 
 button {
   cursor: pointer;
-}
-
-form {
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
 }
 
 select#genre {
@@ -129,10 +135,6 @@ select#genre {
 }
 
 select#rating {
-  width: auto;
-}
-
-input#score {
   width: auto;
 }
 
@@ -291,23 +293,10 @@ div.attribution {
 }
 
 @media only screen and (max-width: 800px) {
-  h1 {
-    margin: 0px;
-  }
-
   .Search {
     background-color: #22303c;
     box-shadow: 0 0 20px black;
-    margin: 30px;
     padding: 20px;
-    height: 300px;
-  }
-
-  form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: stretch;
   }
 
   select#genre {
@@ -317,38 +306,9 @@ div.attribution {
   select#rating {
     width: 100%;
   }
-
-  input#score {
-    width: 98%;
-  }
-
-  .Search button {
-    display: flex;
-    margin: 25px auto 0px;
-  }
 }
 
 @media only screen and (min-width: 801px) and (max-width: 1190px) {
-  h1 {
-    margin: 0px;
-  }
-
-  .Search {
-    background-color: #22303c;
-    box-shadow: 0 0 20px black;
-    margin: 30px;
-    padding: 5px 100px;
-    height: 225px;
-  }
-
-  form {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin: 0px auto;
-    align-items: stretch;
-  }
-
   div.genre {
     display: flex;
     justify-content: space-between;
@@ -367,14 +327,5 @@ div.attribution {
   div.score {
     display: flex;
     justify-content: space-between;
-  }
-
-  input#score {
-    width: 108px;
-  }
-
-  .Search button {
-    display: flex;
-    margin: 25px auto 0px;
   }
 }

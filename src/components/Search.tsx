@@ -1,20 +1,23 @@
 import { useState } from "react";
 import DiscoverSearch from "./DiscoverSearch";
-import MultiSearch from "./MultiSearch";
+import MovieSearch from "./MovieSearch";
 
 interface Props {
-  multiSearch: (search: string) => void;
+  movieSearch: (search: string) => void;
   discoverSearch: (search: string) => void;
 }
 
-function Search({ multiSearch, discoverSearch }: Props) {
+function Search({ movieSearch, discoverSearch }: Props) {
+  // STATE FOR SEARCH TYPE
   const [isMultiActive, setIsMultiActive] = useState<Boolean>(true);
+
+  // RENDER PAGE
   return (
     <div className="Search">
       <div>
         <h1>Search</h1>
       </div>
-      {isMultiActive ? <MultiSearch multiSearch={multiSearch} /> : <DiscoverSearch discoverSearch={discoverSearch} />}
+      {isMultiActive ? <MovieSearch movieSearch={movieSearch} /> : <DiscoverSearch discoverSearch={discoverSearch} />}
       {isMultiActive ? (
         <span className="toggleSearch" onClick={() => setIsMultiActive(false)}>
           Discover Search

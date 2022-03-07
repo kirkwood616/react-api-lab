@@ -32,7 +32,7 @@ function DiscoverSearch({ discoverSearch }: Props) {
     discoverSearch(searchParams);
   }
 
-  // RENDER
+  // RENDER PAGE
   return (
     <div className="DiscoverSearch">
       <form name="searchForm" onSubmit={discoverHandleSubmit}>

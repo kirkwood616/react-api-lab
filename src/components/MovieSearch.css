@@ -1,0 +1,41 @@
+.MovieSearch {
+  display: flex;
+  /* flex-wrap: nowrap; */
+  align-items: center;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+form[name="movieSearchForm"] {
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100%;
+  display: inline;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+input[name="movieSearchInput"] {
+  border: none;
+  border-radius: 1rem 0 0 1rem;
+  font-size: 0.85rem;
+  line-height: 2.5rem;
+  text-align: center;
+  width: 65%;
+}
+
+input[name="movieSearchInput"]:focus {
+  outline: none;
+}
+
+@media only screen and (max-width: 420px) {
+  input[name="movieSearchInput"] {
+    border-radius: 1rem;
+    width: 100%;
+  }
+
+  .Search button {
+    border-radius: 1rem;
+    margin-top: 1rem;
+  }
+}

@@ -28,9 +28,9 @@ export function fetchGenre(): Promise<Genre[]> {
 }
 
 // MULTI SEARCH
-export function fetchMultiSearch(search: string): Promise<Movie[]> {
+export function fetchMovieSearch(search: string): Promise<Movie[]> {
   return axios
-    .get(`https://api.themoviedb.org/3/search/multi`, {
+    .get(`https://api.themoviedb.org/3/search/movie`, {
       params: {
         api_key: apiKey,
         language: "en-US",
