@@ -23,10 +23,6 @@ function Main() {
     }
   }, [movieSearch, discoverSearch]);
 
-  console.log(movieSearch);
-  console.log(discoverSearch);
-  // console.log(movies);
-
   // RENDER PAGE
   return (
     <div className="Main">
