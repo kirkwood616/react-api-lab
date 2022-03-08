@@ -27,7 +27,11 @@ function Movie({ movie }: Props) {
   return (
     <div className="Movie">
       <Link to={`/react-api-lab/movie/${movie.id}`}>
-        <img src={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`} alt={`${movie.title} Movie Poster`} />
+        {movie.poster_path === null ? (
+          <img src="/react-api-lab/notfound.png" alt="Not Found" />
+        ) : (
+          <img src={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`} alt={`${movie.title} Movie Poster`} />
+        )}
       </Link>
       <p className="Title">{movie.title}</p>
       <div className="bottomContainer">
