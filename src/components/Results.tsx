@@ -1,3 +1,4 @@
+import "./Results.css";
 import MovieInterface from "../models/MovieInterface";
 import Movie from "./Movie";
 

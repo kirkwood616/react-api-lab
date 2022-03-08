@@ -1,3 +1,4 @@
+import "./WatchList.css";
 import { useContext } from "react";
 import Movie from "./Movie";
 import AppContext from "../context/AppContext";

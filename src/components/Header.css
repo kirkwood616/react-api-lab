@@ -1,0 +1,95 @@
+.Header {
+  display: flex;
+  justify-content: space-between;
+  position: sticky;
+  font-size: larger;
+  top: 0;
+  background-color: #22303c;
+  align-items: center;
+  padding: 1rem 2rem;
+  z-index: 1;
+  box-shadow: 0 0 20px black;
+}
+
+.Header .logoContainer {
+  background-color: black;
+  border-radius: 0.5rem;
+  padding: 0.25rem;
+}
+
+.Header .reel {
+  background-color: white;
+  border: 2px dashed black;
+}
+
+.Header .logo {
+  background-color: #289fed;
+  padding: 0.25rem;
+  margin: 5px 0;
+}
+
+.Header .movieLogo {
+  height: 2.5rem;
+}
+
+.Header .movie {
+  color: #22303c;
+  text-decoration: none;
+}
+
+.Header .hub {
+  color: white;
+}
+
+.Header ul {
+  padding: 0;
+}
+
+.Header ul li {
+  display: inline;
+  list-style-type: none;
+}
+
+.Header li {
+  padding-left: 10px;
+}
+
+.Header .pipe {
+  padding-left: 10px;
+}
+
+.Header .watchListCount {
+  color: white;
+  border-radius: 50%;
+  font-weight: bold;
+}
+
+@media only screen and (max-width: 300px) {
+  .Header ul {
+    font-size: 1rem;
+  }
+}
+
+@media only screen and (max-width: 420px) {
+  .Header {
+    flex-direction: column;
+    justify-content: center;
+    padding: 0;
+  }
+
+  .Header ul {
+    margin: 0.5rem 0;
+  }
+
+  .Header h2 {
+    font-size: 1rem;
+  }
+
+  .Header .logoContainer {
+    margin-top: 0.5rem;
+  }
+
+  .Header ul li:first-child {
+    padding-left: 0;
+  }
+}

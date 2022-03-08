@@ -1,3 +1,4 @@
+import "./Search.css";
 import { useState } from "react";
 import DiscoverSearch from "./DiscoverSearch";
 import MovieSearch from "./MovieSearch";
