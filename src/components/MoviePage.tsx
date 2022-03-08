@@ -22,6 +22,7 @@ function MoviePage() {
   useEffect(() => {
     fetchCertification(id).then((data) => {
       let certUS = data.find((e: any) => e.iso_3166_1 === "US");
+      if (certUS === undefined) setRating("NR");
       let rated = certUS.release_dates.find((date: any) => date.certification);
       rated ? setRating(rated.certification) : setRating("NR");
       setReleaseDate(rated.release_date);
