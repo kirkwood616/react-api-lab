@@ -1,4 +1,4 @@
-import "./Movie.css";
+import "../styles/Movie.css";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import AppContext from "../context/AppContext";

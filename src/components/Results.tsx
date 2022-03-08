@@ -1,4 +1,4 @@
-import "./Results.css";
+import "../styles/Results.css";
 import MovieInterface from "../models/MovieInterface";
 import Movie from "./Movie";
 

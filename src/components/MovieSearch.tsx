@@ -1,4 +1,4 @@
-import "./MovieSearch.css";
+import "../styles/MovieSearch.css";
 import { FormEvent, useState } from "react";
 
 interface Props {

@@ -1,4 +1,4 @@
-import "./MoviePage.css";
+import "../styles/MoviePage.css";
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import MovieInterface from "../models/MovieInterface";

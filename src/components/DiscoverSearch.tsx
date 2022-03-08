@@ -1,4 +1,4 @@
-import "./DiscoverSearch.css";
+import "../styles/DiscoverSearch.css";
 
 import { FormEvent, useEffect, useState } from "react";
 import Genre from "../models/GenreInterface";
