@@ -1,5 +1,5 @@
 import MovieInterface from "../models/MovieInterface";
-import "./Bookmark.css";
+import "../styles/Bookmark.css";
 
 interface CheckProps {
   check: MovieInterface | undefined;

@@ -1,4 +1,4 @@
-import "./MoviePage.css";
+import "../styles/MoviePage.css";
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import MovieInterface from "../models/MovieInterface";
@@ -59,7 +59,11 @@ function MoviePage() {
     <div className="MoviePage">
       <div className="movieContainer">
         <div className="movieImageContainer">
-          <img src={`https://image.tmdb.org/t/p/w300/${movie?.poster_path}`} alt={`${movie?.title} Movie Poster`} />
+          {movie?.poster_path === null ? (
+            <img src="/react-api-lab/notfound.png" alt="Not Found" />
+          ) : (
+            <img src={`https://image.tmdb.org/t/p/w300/${movie?.poster_path}`} alt={`${movie?.title} Movie Poster`} />
+          )}
         </div>
         <div className="movieInfo">
           <h3>

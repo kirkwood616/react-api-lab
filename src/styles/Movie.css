@@ -1,0 +1,96 @@
+.Movie {
+  margin: 15px 15px;
+  background-color: #192734;
+  box-shadow: 0 0 20px black;
+  text-align: center;
+  transition: all 0.2s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 280px;
+  padding-bottom: 1rem;
+}
+
+.Movie:hover {
+  transform: scale(1.02);
+}
+
+.Movie img {
+  min-height: 430px;
+  max-width: 100%;
+}
+
+.Movie .Title {
+  font-weight: bold;
+  font-size: 1rem;
+  word-wrap: break-word;
+}
+
+.Movie .bottomContainer {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+}
+
+.Movie .Rating {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25px;
+  height: 25px;
+  margin: 0 0.5rem;
+  padding: 15px;
+  border-radius: 50%;
+  font-weight: bold;
+  border: #15202b 2px solid;
+}
+
+.Movie .RatingInner {
+  background-color: #15202b;
+  border-radius: 50%;
+  padding: 10px;
+  min-width: 25px;
+  height: 25px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Movie .Percent {
+  font-size: 0.65rem;
+  font-weight: normal;
+}
+
+.Movie button {
+  border: 1px solid black;
+  border-radius: 50%;
+  color: white;
+  width: 55px;
+  height: 55px;
+  margin: 0 0.5rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  transition: 0.2s;
+  font-weight: bold;
+}
+
+.addWatchList {
+  background-color: black;
+}
+
+.inWatchList {
+  background-color: #289fed;
+}
+
+@media only screen and (max-width: 420px) {
+  .Movie {
+    margin: 1rem 0;
+  }
+
+  .Movie img {
+    min-height: 100%;
+  }
+}

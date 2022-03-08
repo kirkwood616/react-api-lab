@@ -1,28 +1,37 @@
 import { useEffect, useState } from "react";
 import MovieInterface from "../models/MovieInterface";
-import { fetchPopular, fetchSearch } from "../services/MovieDbApiService";
+import { fetchPopular, fetchDiscoverSearch, fetchMovieSearch } from "../services/MovieDbApiService";
 import Results from "./Results";
 import Search from "./Search";
 
 function Main() {
   // STATES FOR MOVIES & SEARCH TERMS
   const [movies, setMovies] = useState<MovieInterface[]>([]);
-  const [search, setSearch] = useState<string>("");
+  const [movieSearch, setMovieSearch] = useState<string>("");
+  const [discoverSearch, setDiscoverSearch] = useState<string>("");
 
-  // API HOOK FOR POPULAR RESULTS
+  // API HOOK FOR POPULAR & SEARCH RESULTS
   useEffect(() => {
-    if (search) {
-      fetchSearch(search).then((data) => setMovies(data));
-    } else {
+    if (movieSearch) {
+      fetchMovieSearch(movieSearch).then((data) => setMovies(data));
+    }
+    if (discoverSearch) {
+      fetchDiscoverSearch(discoverSearch).then((data) => setMovies(data));
+    }
+    if (!movieSearch && !discoverSearch) {
       fetchPopular().then((data) => setMovies(data));
     }
-  }, [search]);
+  }, [movieSearch, discoverSearch]);
+
+  console.log(movieSearch);
+  console.log(discoverSearch);
+  // console.log(movies);
 
   // RENDER PAGE
   return (
     <div className="Main">
-      <Search onSubmit={setSearch} />
-      <h1>{search ? "Search Results" : "Trending Movies"}</h1>
+      <Search movieSearch={setMovieSearch} discoverSearch={setDiscoverSearch} />
+      <h1>{movieSearch || discoverSearch ? "Search Results" : "Trending Movies"}</h1>
       <Results movies={movies} />
       <div className="attribution">
         <a href="https://www.themoviedb.org/?language=en-US" target="blank" rel="noopener noreferrer">

@@ -1,0 +1,105 @@
+.DiscoverSearch {
+  /* background-color: yellow; */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 75%;
+}
+
+.DiscoverSearch .inputContainer {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.DiscoverSearch > form {
+  width: 100%;
+}
+
+/* .DiscoverSearch .genre,
+.rating,
+.score {
+  display: flex;
+  flex-direction: column;
+} */
+
+.DiscoverSearch select {
+  text-align: center;
+}
+
+.DiscoverSearch .valuePadding input {
+  border: none;
+  border-radius: 0.5rem;
+  height: 1rem;
+  text-align: center;
+}
+
+.DiscoverSearch .valuePadding input:focus {
+  outline: none;
+}
+
+.DiscoverSearch .valuePadding {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  background-color: white;
+  border-radius: 0.5rem;
+  height: 1.5rem;
+  width: 100%;
+}
+
+.DiscoverSearch .discoverSearchButton {
+  background-color: #289fed;
+  border-radius: 1rem;
+  border: none;
+  color: white;
+  margin: 1rem;
+  padding: 0 1.25rem 2px 1.25rem;
+  padding-bottom: 2px;
+  height: 2.6rem;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  transition: 0.2s;
+  font-weight: bold;
+}
+
+@media only screen and (max-width: 1068px) {
+  .DiscoverSearch {
+    width: 100%;
+  }
+
+  .DiscoverSearch > form {
+    width: 100%;
+  }
+
+  .DiscoverSearch .inputContainer {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .DiscoverSearch {
+    width: 50%;
+  }
+
+  .DiscoverSearch .inputContainer {
+    flex-direction: column;
+  }
+
+  .DiscoverSearch .inputContainer > div {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .DiscoverSearch .inputContainer > div:nth-child(-n + 2) {
+    margin-bottom: 0.75rem;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .DiscoverSearch {
+    width: 75%;
+  }
+}

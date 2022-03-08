@@ -5,8 +5,8 @@ import MovieInterface from "../models/MovieInterface";
 
 const apiKey = process.env.REACT_APP_TMDB_API_KEY || "";
 
+// POPULAR API
 export function fetchPopular(): Promise<Movie[]> {
-  // POPULAR API
   return axios
     .get(`https://api.themoviedb.org/3/trending/movie/day`, {
       params: {
@@ -27,30 +27,30 @@ export function fetchGenre(): Promise<Genre[]> {
     .then((res) => res.data.genres);
 }
 
-// https://api.themoviedb.org/3/discover/movie?{apiKey}
-
-export function fetchSearch(search: string): Promise<Movie[]> {
+// MULTI SEARCH
+export function fetchMovieSearch(search: string): Promise<Movie[]> {
   return axios
-    .get(
-      `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US${search}`
-    )
+    .get(`https://api.themoviedb.org/3/search/movie`, {
+      params: {
+        api_key: apiKey,
+        language: "en-US",
+        query: search,
+      },
+    })
     .then((res) => res.data.results);
+}
+
+// DISCOVER SEARCH
+export function fetchDiscoverSearch(search: string): Promise<Movie[]> {
+  return axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US${search}`).then((res) => res.data.results);
 }
 
 // SINGLE MOVIE API
 export function fetchMovie(id: number): Promise<MovieInterface> {
-  return axios
-    .get(
-      `https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}&language=en-US`
-    )
-    .then((res) => res.data);
+  return axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}&language=en-US`).then((res) => res.data);
 }
 
 // SINGLE MOVIE CERTIFICATION(RATED) API
 export function fetchCertification(id: number) {
-  return axios
-    .get(
-      `https://api.themoviedb.org/3/movie/${id}/release_dates?api_key=${apiKey}`
-    )
-    .then((res) => res.data.results);
+  return axios.get(`https://api.themoviedb.org/3/movie/${id}/release_dates?api_key=${apiKey}`).then((res) => res.data.results);
 }
