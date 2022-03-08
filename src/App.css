@@ -97,26 +97,6 @@ h4 {
   display: inline;
 }
 
-.Search button {
-  background-color: #289fed;
-  border-radius: 0 1rem 1rem 0;
-  border: none;
-  color: white;
-  padding: 0 1.25rem 2px 1.25rem;
-  padding-bottom: 2px;
-  height: 2.6rem;
-  text-align: center;
-  text-decoration: none;
-  font-size: 16px;
-  transition: 0.2s;
-  font-weight: bold;
-}
-
-.Search button:hover {
-  background-color: #289fed;
-  transition: 0.2s;
-}
-
 .toggleSearch {
   color: #289fed;
   cursor: pointer;
@@ -130,13 +110,13 @@ button {
   cursor: pointer;
 }
 
-select#genre {
+/* select#genre {
   width: auto;
 }
 
 select#rating {
   width: auto;
-}
+} */
 
 .addWatchList {
   background-color: black;
@@ -287,6 +267,10 @@ div.attribution {
 }
 
 @media only screen and (max-width: 480px) {
+  h1 {
+    font-size: 1.75rem;
+  }
+
   h2 {
     font-size: 1.5rem;
   }
@@ -295,37 +279,7 @@ div.attribution {
 @media only screen and (max-width: 800px) {
   .Search {
     background-color: #22303c;
-    box-shadow: 0 0 20px black;
+    /* box-shadow: 0 0 20px black; */
     padding: 20px;
-  }
-
-  select#genre {
-    width: 100%;
-  }
-
-  select#rating {
-    width: 100%;
-  }
-}
-
-@media only screen and (min-width: 801px) and (max-width: 1190px) {
-  div.genre {
-    display: flex;
-    justify-content: space-between;
-    min-width: 350px;
-  }
-
-  select {
-    width: 110px;
-  }
-
-  div.rating {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  div.score {
-    display: flex;
-    justify-content: space-between;
   }
 }

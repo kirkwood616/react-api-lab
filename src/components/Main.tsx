@@ -13,17 +13,19 @@ function Main() {
   // API HOOK FOR POPULAR & SEARCH RESULTS
   useEffect(() => {
     if (movieSearch) {
-      setDiscoverSearch("");
       fetchMovieSearch(movieSearch).then((data) => setMovies(data));
     }
     if (discoverSearch) {
-      setMovieSearch("");
       fetchDiscoverSearch(discoverSearch).then((data) => setMovies(data));
     }
     if (!movieSearch && !discoverSearch) {
       fetchPopular().then((data) => setMovies(data));
     }
   }, [movieSearch, discoverSearch]);
+
+  console.log(movieSearch);
+  console.log(discoverSearch);
+  // console.log(movies);
 
   // RENDER PAGE
   return (

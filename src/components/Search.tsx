@@ -9,21 +9,25 @@ interface Props {
 
 function Search({ movieSearch, discoverSearch }: Props) {
   // STATE FOR SEARCH TYPE
-  const [isMultiActive, setIsMultiActive] = useState<Boolean>(true);
+  const [isKeywordActive, setIsKeywordActive] = useState<Boolean>(true);
 
   // RENDER PAGE
   return (
     <div className="Search">
       <div>
-        <h1>Search</h1>
+        <h1>{isKeywordActive ? "Search" : "Discover Search"}</h1>
       </div>
-      {isMultiActive ? <MovieSearch movieSearch={movieSearch} /> : <DiscoverSearch discoverSearch={discoverSearch} />}
-      {isMultiActive ? (
-        <span className="toggleSearch" onClick={() => setIsMultiActive(false)}>
+      {isKeywordActive ? (
+        <MovieSearch movieSearch={movieSearch} discoverSearch={discoverSearch} />
+      ) : (
+        <DiscoverSearch discoverSearch={discoverSearch} movieSearch={movieSearch} />
+      )}
+      {isKeywordActive ? (
+        <span className="toggleSearch" onClick={() => setIsKeywordActive(false)}>
           Discover Search
         </span>
       ) : (
-        <span className="toggleSearch" onClick={() => setIsMultiActive(true)}>
+        <span className="toggleSearch" onClick={() => setIsKeywordActive(true)}>
           Keyword Search
         </span>
       )}
