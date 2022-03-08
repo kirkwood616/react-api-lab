@@ -1,5 +1,4 @@
 .DiscoverSearch {
-  /* background-color: yellow; */
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -16,37 +15,11 @@
   width: 100%;
 }
 
-/* .DiscoverSearch .genre,
-.rating,
-.score {
-  display: flex;
-  flex-direction: column;
-} */
-
 .DiscoverSearch select {
-  text-align: center;
-}
-
-.DiscoverSearch .valuePadding input {
-  border: none;
-  border-radius: 0.5rem;
-  height: 1rem;
-  text-align: center;
-}
-
-.DiscoverSearch .valuePadding input:focus {
-  outline: none;
-}
-
-.DiscoverSearch .valuePadding {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: black;
-  background-color: white;
   border-radius: 0.5rem;
   height: 1.5rem;
-  width: 100%;
+  min-width: 115px;
+  text-align: center;
 }
 
 .DiscoverSearch .discoverSearchButton {
