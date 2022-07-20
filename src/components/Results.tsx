@@ -1,5 +1,5 @@
-import "../styles/Results.css";
 import MovieInterface from "../models/MovieInterface";
+import "../styles/Results.css";
 import Movie from "./Movie";
 
 interface Props {

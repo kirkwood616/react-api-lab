@@ -1,9 +1,9 @@
-import "../styles/MoviePage.css";
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import AppContext from "../context/AppContext";
 import MovieInterface from "../models/MovieInterface";
 import { fetchCertification, fetchMovie } from "../services/MovieDbApiService";
-import AppContext from "../context/AppContext";
+import "../styles/MoviePage.css";
 import Bookmark from "./Bookmark";
 
 function MoviePage() {
@@ -54,7 +54,7 @@ function MoviePage() {
   } else {
     bgColor = "green";
   }
-
+  console.log(movie?.vote_average);
   // PAGE RENDER
   return (
     <div className="MoviePage">

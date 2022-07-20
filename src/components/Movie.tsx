@@ -1,8 +1,8 @@
-import "../styles/Movie.css";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import AppContext from "../context/AppContext";
 import MovieInterface from "../models/MovieInterface";
+import "../styles/Movie.css";
 import Bookmark from "./Bookmark";
 
 interface Props {
@@ -23,11 +23,12 @@ function Movie({ movie }: Props) {
   } else {
     bgColor = "green";
   }
+  console.log(movie.vote_average);
 
   // RENDER PAGE
   return (
     <div className="Movie">
-      <Link to={`/react-api-lab/movie/${movie.id}`}>
+      <Link to={{ pathname: `/react-api-lab/movie/${movie.id}` }}>
         {movie.poster_path === null ? (
           <img src="/react-api-lab/notfound.png" alt="Not Found" />
         ) : (
@@ -38,7 +39,7 @@ function Movie({ movie }: Props) {
       <div className="bottomContainer">
         <div className="Rating" style={{ backgroundColor: bgColor }}>
           <div className="RatingInner">
-            {movie.vote_average * 10}
+            {(movie.vote_average * 10).toFixed()}
             <span className="Percent">%</span>
           </div>
         </div>

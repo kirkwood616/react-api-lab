@@ -1,7 +1,7 @@
-import "../styles/WatchList.css";
 import { useContext } from "react";
-import Movie from "./Movie";
 import AppContext from "../context/AppContext";
+import "../styles/WatchList.css";
+import Movie from "./Movie";
 
 export function WatchList() {
   let { watchList } = useContext(AppContext);
