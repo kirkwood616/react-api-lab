@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import AppContext from "../context/AppContext";
 import MovieInterface from "../models/MovieInterface";
 import { fetchCertification, fetchMovie } from "../services/MovieDbApiService";
@@ -13,6 +13,9 @@ function MoviePage() {
   const [, setReleaseDate] = useState<String>("");
   const id: number = Number(useParams().id!);
   let watchListCheck: MovieInterface | undefined = watchList.find((e) => e.id === movie?.id);
+
+  const location = useLocation();
+  const voteAverage = Number(location.state);
 
   // API HOOKS
   useEffect(() => {
@@ -46,15 +49,14 @@ function MoviePage() {
 
   // BACKGROUND COLOR
   let bgColor = "";
-
-  if (movie && movie.vote_average <= 4) {
+  if (movie && voteAverage <= 4) {
     bgColor = "red";
-  } else if (movie && movie.vote_average >= 4.1 && movie.vote_average <= 5.9) {
+  } else if (movie && voteAverage >= 4.1 && voteAverage <= 5.9) {
     bgColor = "yellow";
   } else {
     bgColor = "green";
   }
-  console.log(movie?.vote_average);
+
   // PAGE RENDER
   return (
     <div className="MoviePage">
@@ -80,7 +82,7 @@ function MoviePage() {
           <div className="ratingWatchContainer">
             <div className="Rating" style={{ backgroundColor: bgColor }}>
               <div className="RatingInner">
-                {movie ? movie?.vote_average * 10 : "N/A"}
+                {movie ? location.state : "N/A"}
                 <span className="Percent">%</span>
               </div>
             </div>
